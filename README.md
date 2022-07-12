@@ -8,4 +8,9 @@
 
 ### Lessons
 
-- [x] lesson-1. Intro about java.
+<dl>
+    <dt>lesson-1. Intro about java.</dt>
+    <dd>No homework</dd>
+    <dt>lesson-2. Repositories.</dt>
+    <dd>Added HelloWorld class. Change markup in readme file.</dd>
+</dl>
