@@ -174,56 +174,16 @@ public class ControlFlowConstruction {
      * @throws IllegalArgumentException if passed number is not in range [1, 12]
      */
     private static SeasonEnum getSeasonByMonthNumberWithIf(int monthNumber) throws IllegalArgumentException {
-        if (isWinter(monthNumber)) {
+        if (monthNumber == 12 || monthNumber == 1 || monthNumber == 2) {
             return SeasonEnum.WINTER;
-        } else if (isSpring(monthNumber)) {
+        } else if (monthNumber == 3 || monthNumber == 4 || monthNumber == 5) {
             return SeasonEnum.SPRING;
-        } else if (isSummer(monthNumber)) {
+        } else if (monthNumber == 6 || monthNumber == 7 || monthNumber == 8) {
             return SeasonEnum.SUMMER;
-        } else if (isAutumn(monthNumber)) {
+        } else if (monthNumber == 9 || monthNumber == 10 || monthNumber == 11) {
             return SeasonEnum.AUTUMN;
         }
 
         throw new IllegalArgumentException("Incorrect month number: " + monthNumber + ". Choose from 1 to 12");
-    }
-
-    /**
-     * Check winter season by month number
-     *
-     * @param monthNumber month number
-     * @return checking result
-     */
-    private static boolean isWinter(int monthNumber) {
-        return monthNumber == 12 || monthNumber == 1 || monthNumber == 2;
-    }
-
-    /**
-     * Check spring season by month number
-     *
-     * @param monthNumber month number
-     * @return checking result
-     */
-    private static boolean isSpring(int monthNumber) {
-        return monthNumber == 3 || monthNumber == 4 || monthNumber == 5;
-    }
-
-    /**
-     * Check summer season by month number
-     *
-     * @param monthNumber month number
-     * @return checking result
-     */
-    private static boolean isSummer(int monthNumber) {
-        return monthNumber == 6 || monthNumber == 7 || monthNumber == 8;
-    }
-
-    /**
-     * Check autumn season by month number
-     *
-     * @param monthNumber month number
-     * @return checking result
-     */
-    private static boolean isAutumn(int monthNumber) {
-        return monthNumber == 9 || monthNumber == 10 || monthNumber == 11;
     }
 }
