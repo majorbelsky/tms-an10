@@ -3,6 +3,7 @@ package io.devmartynov.tmsAn10Java.l3;
 import java.util.Scanner;
 
 public class Loop {
+    private static final String SEQUENCE_SEPARATOR = ", ";
     public static void main(String[] args) {
         System.out.print("Task #1 Print not even numbers from range [1, 99) using increment: ");
         printNotEvenNumbersFromRange(1, 99);
@@ -26,9 +27,12 @@ public class Loop {
      * @param end   end of range. Not included
      */
     public static void printNotEvenNumbersFromRange(int begin, int end) {
+        String separator = "";
+
         for (int i = begin; i < end; i++) {
             if (i % 2 != 0) { // is even
-                System.out.print(i + ", ");
+                System.out.print(separator + i);
+                separator = SEQUENCE_SEPARATOR;
             }
         }
     }
@@ -41,8 +45,11 @@ public class Loop {
      * @param end   end of range. Not included
      */
     public static void printNumbersFromRangeUsingDecrement(int begin, int end) {
+        String separator = "";
+
         for (int i = begin; i > end; i--) {
-            System.out.print(i + ", ");
+            System.out.print(separator + i);
+            separator = SEQUENCE_SEPARATOR;
         }
     }
 
@@ -65,11 +72,12 @@ public class Loop {
      * @param length length of sequence
      */
     public static void printSequence(int begin, int multiplier, int length) {
+        String separator = "";
         int counter = begin / multiplier;
 
         while (counter < length) {
-            System.out.print((multiplier * counter) + ", ");
-
+            System.out.print(separator + (multiplier * counter));
+            separator = SEQUENCE_SEPARATOR;
             counter++;
         }
     }
@@ -79,8 +87,11 @@ public class Loop {
      * Print squares of numbers in range of [10, 20].
      */
     public static void printNumberSquareFromRange() {
+        String separator = "";
+
         for (int i = 10; i <= 20; i++) {
-            System.out.print((i * i) + ", ");
+            System.out.print(separator + (i * i));
+            separator = SEQUENCE_SEPARATOR;
         }
     }
 
