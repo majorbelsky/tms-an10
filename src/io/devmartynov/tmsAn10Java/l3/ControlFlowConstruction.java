@@ -38,7 +38,7 @@ public class ControlFlowConstruction {
                 );
                 predicate = false;
             } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
+                e.printStackTrace();
             }
         }
     }
@@ -84,7 +84,7 @@ public class ControlFlowConstruction {
                 System.out.println(getRainbowColorByNumber(colorNumber));
                 predicate = false;
             } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
+                e.printStackTrace();
             }
         }
     }
