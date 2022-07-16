@@ -11,9 +11,9 @@ public class Loop {
         System.out.println("\nTask #3 Print sum of numbers from given range [1, int): ");
         printNumbersSumFromRange();
         System.out.println("\nTask #4 Print sequence of 7: ");
-        printSequenceOf7();
+        printSequence(7, 7, 15);
         System.out.println("\nTask #5 Print sequence of 5: ");
-        printSequenceOf5();
+        printSequence(0, -5, 10);
         System.out.println("\nTask #6 Print squares of numbers in range of [10, 20]: ");
         printNumberSquareFromRange();
     }
@@ -58,19 +58,20 @@ public class Loop {
     }
 
     /**
-     * Task #4
-     * Print sequence of 7.
+     * Task #4, Task #5
+     * Print sequence.
+     * @param begin sequence starts with this number
+     * @param multiplier index of sequence multiply to this number
+     * @param length length of sequence
      */
-    public static void printSequenceOf7() {
-        printSequence(7, 7, 15);
-    }
+    public static void printSequence(int begin, int multiplier, int length) {
+        int counter = begin / multiplier;
 
-    /**
-     * Task #5
-     * Print sequence of 5.
-     */
-    public static void printSequenceOf5() {
-        printSequence(0, -5, 10);
+        while (counter < length) {
+            System.out.print((multiplier * counter) + ", ");
+
+            counter++;
+        }
     }
 
     /**
@@ -80,22 +81,6 @@ public class Loop {
     public static void printNumberSquareFromRange() {
         for (int i = 10; i <= 20; i++) {
             System.out.print((i * i) + ", ");
-        }
-    }
-
-    /**
-     * Print sequence.
-     * @param begin sequence starts with this number
-     * @param multiplier index of sequence multiply to this number
-     * @param length length of sequence
-     */
-    private static void printSequence(int begin, int multiplier, int length) {
-        int counter = begin / multiplier;
-
-        while (counter < length) {
-            System.out.print((multiplier * counter) + ", ");
-
-            counter++;
         }
     }
 
