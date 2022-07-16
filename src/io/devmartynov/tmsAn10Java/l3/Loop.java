@@ -109,7 +109,7 @@ public class Loop {
     private static int sumNumbersFromRange(int begin, int end) {
         int sum = 0;
 
-        for (int i = begin; i < end; i++) {
+        for (int i = begin; i <= end; i++) {
             sum += i;
         }
 
