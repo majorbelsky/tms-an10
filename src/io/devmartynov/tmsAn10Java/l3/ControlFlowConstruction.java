@@ -3,6 +3,7 @@ package io.devmartynov.tmsAn10Java.l3;
 import java.util.Scanner;
 
 public class ControlFlowConstruction {
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         System.out.println("Task #1 Get season by month number with SWITCH-CASE: ");
@@ -24,7 +25,6 @@ public class ControlFlowConstruction {
      * @param withSwitch if true SWITCH-CASE will be used to determine season else IF-ELSE-IF
      */
     public static void printSeasonByMonthNumber(boolean withSwitch) {
-        Scanner scanner = new Scanner(System.in);
         boolean predicate = true;
 
         while (predicate) {
@@ -75,7 +75,6 @@ public class ControlFlowConstruction {
      * Get rainbow color number from user input and print color name.
      */
     public static void printRainbowColorByNumber() {
-        Scanner scanner = new Scanner(System.in);
         boolean predicate = true;
 
         while (predicate) {
