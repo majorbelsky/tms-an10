@@ -63,14 +63,11 @@ public class ControlFlowConstruction {
         if (temperature <= 15 && temperature > -5) {
             System.out.println("Нормально");
             return;
-        }
-
-        if (temperature > 15) {
+        } else if (temperature > 15) {
             System.out.println("Тепло");
-            return;
+        } else {
+            System.out.println("Холодно");
         }
-
-        System.out.println("Холодно");
     }
 
     /**
