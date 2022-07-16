@@ -75,11 +75,13 @@ public class AdditionalTasks {
      */
     private static double calculateDepositAmount(double sum, int monthCount, float monthlyProfitPercent) {
         double profit = 0d;
+        double tempSum = sum;
 
         for (int i = 1; i <= monthCount; i++) {
-            profit += sum / 100 * monthlyProfitPercent;
+            profit += tempSum / 100 * monthlyProfitPercent;
+            tempSum += profit;
         }
 
-        return sum + profit;
+        return tempSum;
     }
 }
