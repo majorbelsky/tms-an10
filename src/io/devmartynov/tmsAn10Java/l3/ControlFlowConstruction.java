@@ -97,24 +97,35 @@ public class ControlFlowConstruction {
      * @throws IllegalArgumentException if passed number is not in range [1, 7]
      */
     private static RainbowColorsEnum getRainbowColorByNumber(int number) throws IllegalArgumentException {
+        RainbowColorsEnum color;
+
         switch (number) {
             case 1:
-                return RainbowColorsEnum.RED;
+                color = RainbowColorsEnum.RED;
+                break;
             case 2:
-                return RainbowColorsEnum.ORANGE;
+                color = RainbowColorsEnum.ORANGE;
+                break;
             case 3:
-                return RainbowColorsEnum.YELLOW;
+                color = RainbowColorsEnum.YELLOW;
+                break;
             case 4:
-                return RainbowColorsEnum.GREEN;
+                color = RainbowColorsEnum.GREEN;
+                break;
             case 5:
-                return RainbowColorsEnum.LIGHTBLUE;
+                color = RainbowColorsEnum.LIGHTBLUE;
+                break;
             case 6:
-                return RainbowColorsEnum.BLUE;
+                color = RainbowColorsEnum.BLUE;
+                break;
             case 7:
-                return RainbowColorsEnum.PURPLE;
+                color = RainbowColorsEnum.PURPLE;
+                break;
             default:
                 throw new IllegalArgumentException("Incorrect color sequence number: " + number + ". Choose from 1 to 7");
         }
+
+        return color;
     }
 
     /**
@@ -125,26 +136,34 @@ public class ControlFlowConstruction {
      * @throws IllegalArgumentException if passed number is not in range [1, 12]
      */
     private static SeasonEnum getSeasonByMonthNumberWithSwitch(int monthNumber) throws IllegalArgumentException {
+        SeasonEnum month;
+
         switch (monthNumber) {
             case 12:
             case 1:
             case 2:
-                return SeasonEnum.WINTER;
+                month = SeasonEnum.WINTER;
+                break;
             case 3:
             case 4:
             case 5:
-                return SeasonEnum.SPRING;
+                month = SeasonEnum.SPRING;
+                break;
             case 6:
             case 7:
             case 8:
-                return SeasonEnum.SUMMER;
+                month = SeasonEnum.SUMMER;
+                break;
             case 9:
             case 10:
             case 11:
-                return SeasonEnum.AUTUMN;
+                month = SeasonEnum.AUTUMN;
+                break;
             default:
                 throw new IllegalArgumentException("Incorrect month number: " + monthNumber + ". Choose from 1 to 12");
         }
+
+        return month;
     }
 
     /**
