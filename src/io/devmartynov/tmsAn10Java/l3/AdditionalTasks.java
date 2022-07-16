@@ -19,13 +19,20 @@ public class AdditionalTasks {
      * @param countOfNumbersInSequence numbers count in sequence
      */
     public static void printFibonacciSequence(int countOfNumbersInSequence) {
-        int counter = 0;
+        String separator = "";
+        int prevNumber = 0;
+        int currentNumber = 1;
+        int nextNumber;
 
-        while (counter < countOfNumbersInSequence) {
-            // this algorithm calculates fib number on every tick. I know that it can be simplifier by passing
-            // previous(n - 1) and preprevious(n - 2) fib numbers to method fib which is can be overloaded.
-            System.out.print(fib(counter) + ", ");
-            counter++;
+        System.out.print(separator + prevNumber);
+        separator = ", ";
+
+        for (int i = 1; i < countOfNumbersInSequence; i++) {
+            System.out.print(separator + currentNumber);
+
+            nextNumber = prevNumber + currentNumber;
+            prevNumber = currentNumber;
+            currentNumber = nextNumber;
         }
     }
 
@@ -56,26 +63,6 @@ public class AdditionalTasks {
             }
             System.out.println();
         }
-    }
-
-    /**
-     * Get positive Fibonacci number by its sequence number
-     * How to calculate:
-     * f(0) = 0
-     * f(1) = 1
-     * f(n) = f(n-1) + f(n-2)
-     *
-     * @param number Sequence number
-     * @return Fibonacci Number
-     */
-    private static int fib(int number) {
-        if (number <= 0) {
-            return 0;
-        } else if (number == 1) {
-            return 1;
-        }
-
-        return fib(number - 1) + fib(number - 2);
     }
 
     /**
