@@ -78,7 +78,7 @@ public class PartOne {
     public static void getMinMaxAndMiddleNumberFormArray() {
         System.out.print("Enter size of array: ");
         int size = scanner.nextInt();
-        int[] array = new SortedIntArray(new RandomIntArray(10)).get();
+        int[] array = new SortedIntArray(new RandomIntArray(size)).get();
         String arrayAsString = Arrays.toString(array);
         System.out.println("Array: " + arrayAsString);
         System.out.println("Min value is: " + array[0]);
