@@ -31,7 +31,9 @@ public class PartOne {
         int toCheckNumber = scanner.nextInt();
         Arrays.sort(array);
         boolean included = Arrays.binarySearch(array, toCheckNumber) >= 0;
-        System.out.printf("Число " + toCheckNumber + (included ? "" : " не ") + "входит в массив " + arrayAsString);
+        System.out.printf(
+            "Number " + toCheckNumber + " is" + (included ? "" : " not") + " included in array: " + arrayAsString
+        );
     }
 
     /**
@@ -61,10 +63,10 @@ public class PartOne {
         }
 
         System.out.println(
-            "Число "
+            "Number "
                 + toRemoveNumber
-                + (successful ? " успешно удално из массива. " : " отсутсвует в массиве. ")
-                + "Результирующий массив: " + Arrays.toString(array)
+                + (successful ? " successfully removed from array. " : " is not included in array. ")
+                + "Result array: " + Arrays.toString(array)
         );
     }
 
