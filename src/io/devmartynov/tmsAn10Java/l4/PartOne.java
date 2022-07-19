@@ -129,12 +129,4 @@ public class PartOne {
 
         System.out.println(message);
     }
-
-    private static void removeElement(int[] array, int index) {
-        // copy elements from original array from beginning till index into copyArray
-        System.arraycopy(array, 0, array, 0, index);
-
-        // copy elements from original array from index+1 till end into copyArray
-        System.arraycopy(array, index + 1, array, index, array.length - index - 1);
-    }
 }
