@@ -4,13 +4,16 @@ import java.util.Arrays;
 
 public class SortedIntArray implements IntArray {
     private final IntArray array;
+    private int[] sortedValue;
     public SortedIntArray(IntArray array) {
         this.array = array;
     }
 
     public int[] get() {
-        int[] a = array.get();
-        Arrays.sort(a);
-        return a;
+        if (sortedValue == null) {
+            sortedValue = array.get();
+            Arrays.sort(sortedValue);
+        }
+        return sortedValue;
     }
 }
