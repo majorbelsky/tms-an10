@@ -60,8 +60,8 @@ public class PartOne {
         int i = 0;
         int size = array.length;
 
-        while (i < array.length) {
-            if (array[i] == toRemoveNumber && i < size) {
+        while (i < size) {
+            if (array[i] == toRemoveNumber) {
                 System.arraycopy(array, i + 1, array, i, array.length - i - 1);
                 successful = true;
                 size--;
