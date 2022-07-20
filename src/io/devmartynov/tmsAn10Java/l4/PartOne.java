@@ -29,8 +29,15 @@ public class PartOne {
         System.out.println("Array: " + arrayAsString);
         System.out.print("Enter number to check if it's inside the array: ");
         int toCheckNumber = scanner.nextInt();
-        Arrays.sort(array);
-        boolean included = Arrays.binarySearch(array, toCheckNumber) >= 0;
+        boolean included = false;
+
+        for (int value : array) {
+            if (toCheckNumber == value) {
+                included = true;
+                break;
+            }
+        }
+
         System.out.printf(
             "Number " + toCheckNumber + " is" + (included ? "" : " not") + " included in array: " + arrayAsString
         );
