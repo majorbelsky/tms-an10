@@ -58,17 +58,19 @@ public class PartOne {
         int toRemoveNumber = scanner.nextInt();
         boolean successful = false;
         int i = 0;
+        int size = array.length;
 
         while (i < array.length) {
-            if (array[i] == toRemoveNumber) {
+            if (array[i] == toRemoveNumber && i < size) {
                 System.arraycopy(array, i + 1, array, i, array.length - i - 1);
-                array = Arrays.copyOfRange(array, 0, array.length - 1);
-                i = 0;
                 successful = true;
+                size--;
             } else {
                 i++;
             }
         }
+
+        array = Arrays.copyOfRange(array, 0, size);
 
         System.out.println(
             "Number "
