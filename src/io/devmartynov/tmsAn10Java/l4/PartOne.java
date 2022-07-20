@@ -1,5 +1,6 @@
 package io.devmartynov.tmsAn10Java.l4;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -118,8 +119,12 @@ public class PartOne {
             sumOfArray2 += array2[i];
         }
 
-        int averageOfArray1 = sumOfArray1 / size;
-        int averageOfArray2 = sumOfArray2 / size;
+        float averageOfArray1 = (float) sumOfArray1 / size;
+        float averageOfArray2 = (float) sumOfArray2 / size;
+
+        String pattern = "####0.00";
+        String averageOfArray1AsString = new DecimalFormat(pattern).format(averageOfArray1);
+        String averageOfArray2AsString = new DecimalFormat(pattern).format(averageOfArray2);
 
         String message;
 
@@ -128,11 +133,11 @@ public class PartOne {
         } else {
             boolean firstBigger = averageOfArray1 > averageOfArray2;
             message = String.format(
-                "Average of numbers inside %s: %d is bigger than %s: %d",
+                "Average of numbers inside %s: %s is bigger than %s: %s",
                 firstBigger ? "array1" : "array2",
-                firstBigger ? averageOfArray1 : averageOfArray2,
+                firstBigger ? averageOfArray1AsString : averageOfArray2AsString,
                 firstBigger ? "array2" : "array1",
-                firstBigger ? averageOfArray2 : averageOfArray1
+                firstBigger ? averageOfArray2AsString : averageOfArray1AsString
             );
         }
 
