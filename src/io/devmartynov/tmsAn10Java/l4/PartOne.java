@@ -124,9 +124,9 @@ public class PartOne {
         float averageOfArray1 = (float) sumOfArray1 / size;
         float averageOfArray2 = (float) sumOfArray2 / size;
 
-        String pattern = "####0.00";
-        String averageOfArray1AsString = new DecimalFormat(pattern).format(averageOfArray1);
-        String averageOfArray2AsString = new DecimalFormat(pattern).format(averageOfArray2);
+        DecimalFormat decimalFormat = new DecimalFormat("####0.00");
+        String averageOfArray1AsString = decimalFormat.format(averageOfArray1);
+        String averageOfArray2AsString = decimalFormat.format(averageOfArray2);
 
         String message;
 
