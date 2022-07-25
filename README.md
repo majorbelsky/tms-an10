@@ -31,4 +31,13 @@
         <p>Method <b>main</b> performs all tasks for class.</p>
         <p><b>No problem with topic.</b></p>
     </dd>
+    <dt>lesson-5. Multidimensional arrays.</dt>
+    <dd>
+        <p>Homework consists of two java classes: <b>PartOne, AdditionalTasks</b>. 
+        Every java class contains public, private static methods and method main.</p>
+        <p><b>Public</b> methods are solutions of tasks. They include javadoc with <b>"Task #{number}"</b> title.</p>
+        <p><b>Private</b> methods are helpers to solution of task.</p>
+        <p>Method <b>main</b> performs all tasks for class.</p>
+        <p><b>No problem with topic.</b></p>
+    </dd>
 </dl>
