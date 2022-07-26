@@ -89,28 +89,27 @@ public class AdditionalTasks {
             {8, 2, -3, 4, 5, 1},
             {1, 0, -3, 4, 5, 6},
         };
+        StringBuilder toPrint = new StringBuilder();
 
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 boolean isDiagonalElement = i == j || i == array[i].length - 1 - j;
                 boolean isLastElementInRow = j == array[i].length - 1;
-                String toPrint = "";
 
                 if (!isDiagonalElement && !isLastElementInRow) {
-                    toPrint += "  ";
+                    toPrint.append("  ");
                 }
 
                 if (isDiagonalElement) {
-                    toPrint += array[i][j] + " ";
+                    toPrint.append(array[i][j]).append(" ");
                 }
 
                 if (isLastElementInRow) {
-                    toPrint += "\n";
+                    toPrint.append("\n");
                 }
-
-                System.out.print(toPrint);
             }
         }
+        System.out.print(toPrint);
     }
 
     /**
