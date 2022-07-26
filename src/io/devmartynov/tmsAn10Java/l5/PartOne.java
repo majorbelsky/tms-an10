@@ -50,17 +50,30 @@ public class PartOne {
         final String[][] array = new String[SIZE][SIZE];
         final String HORIZONTAL_DELIMITER = "---------------------------------";
         final String VERTICAL_DELIMITER = "|";
+        final String EMPTY_SYMBOL = " ";
+        final StringBuilder toPrint = new StringBuilder();
 
         for (int i = 0; i < SIZE; i++) {
-            System.out.println("\n" + HORIZONTAL_DELIMITER);
+            toPrint
+                .append(System.lineSeparator())
+                .append(HORIZONTAL_DELIMITER)
+                .append(System.lineSeparator());
 
             for (int j = 0; j < SIZE; j++) {
                 array[i][j] = (i + j) % 2 == 0 ? "W" : "B";
-                System.out.print(VERTICAL_DELIMITER + " " + array[i][j] + " ");
+                toPrint
+                    .append(VERTICAL_DELIMITER)
+                    .append(EMPTY_SYMBOL)
+                    .append(array[i][j])
+                    .append(EMPTY_SYMBOL);
             }
 
-            System.out.print(VERTICAL_DELIMITER);
+            toPrint.append(VERTICAL_DELIMITER);
         }
-        System.out.println("\n" + HORIZONTAL_DELIMITER);
+        toPrint
+            .append(System.lineSeparator())
+            .append(HORIZONTAL_DELIMITER);
+
+        System.out.println(toPrint);
     }
 }
