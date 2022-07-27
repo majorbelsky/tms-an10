@@ -10,6 +10,7 @@ public class ConsoleUtils {
     private static final String REQUEST_FLOAT_NUMBER_MESSAGE = "Enter float number: ";
     private static final String REQUEST_STRING_MESSAGE = "Enter letter: ";
     private static final String PRINT_ARRAY_PREFIX = "Array: ";
+    public static final String REQUEST_ARRAY_MESSAGE = "Enter array element with index ";
 
     /**
      * Requests int number from console with message

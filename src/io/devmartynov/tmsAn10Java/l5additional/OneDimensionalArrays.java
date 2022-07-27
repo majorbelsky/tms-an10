@@ -7,7 +7,6 @@ import io.devmartynov.tmsAn10Java.l5additional.utils.utils.ConsoleUtils;
 import io.devmartynov.tmsAn10Java.l5additional.utils.utils.NumberUtils;
 
 import java.util.Arrays;
-import java.util.Scanner;
 import java.util.StringJoiner;
 
 public class OneDimensionalArrays {
@@ -43,6 +42,17 @@ public class OneDimensionalArrays {
         printSumOfElementsThatRemainderOfTheDivisionBy5And8();
         printProductOfAllArrayElementsRemainderOfTheDivisionBy5();
         printAscSortedArray();
+        printTemperatureAnalysis();
+        printPrecipitationCountsOfTheYear();
+        printEvenElementsCount();
+        printEvenElementsCountBeforeNumber();
+        gg1();
+        printAverageOfElementsThatInRange();
+        printIfArrayHasEventAndNegativeNumber();
+        printElementsSumBeforeFirstZero();
+        printIfArrayHasSingleBiggestElementAndItsNotBiggerThatGivenNumber();
+        printReplacedArrayAndCountBigger();
+        printIntruder();
     }
 
     /**
@@ -149,7 +159,7 @@ public class OneDimensionalArrays {
     public static void printBiggestElementOfArray() {
         int[] array = ArrayUtils.generateRandomArray(15, -35, 25);
         ConsoleUtils.printArray(array);
-        int[] measurements = ArrayUtils.findBiggestElementAndItsIndex(array);
+        int[] measurements = ArrayUtils.getBiggestElementAndItsIndex(array);
         System.out.println(
             "Biggest element is: " + measurements[0]
                 + ", biggest element index is: " + measurements[1]
@@ -527,6 +537,236 @@ public class OneDimensionalArrays {
         ConsoleUtils.printArray(array);
         Arrays.sort(array);
         ConsoleUtils.printArray(array);
+    }
+
+    /**
+     * Task #31
+     * Напишите программу анализа значений температуры больного за сутки: определите минимальное и максимальное
+     * значение, среднее арифметическое. Замеры температуры производятся шесть раз в сутки и результаты
+     * вводятся с клавиатуры в массив T.
+     */
+    public static void printTemperatureAnalysis() {
+        float[] array = ArrayUtils.getFloatArrayFromConsole(6);
+        ConsoleUtils.printArray(array);
+        float averageOfElements = ArrayUtils.averageOfElements(array);
+        float smallestElement = ArrayUtils.getSmallestElement(array);
+        float biggestElement = ArrayUtils.getBiggestElement(array);
+        System.out.println(
+            "Min temperature: " + smallestElement
+            + ", max temperature: " + biggestElement
+            + ", average: " + averageOfElements
+        );
+    }
+
+    /**
+     * Task #32
+     * Линейный массив содержит сведения о количестве осадков, выпавших за каждый из 12 месяцев одного года.
+     * Составить программу, определяющую общее количество осадков за этот год, среднемесячное количество осадков,
+     * количество засушливых месяцев (когда количество осадков было меньше 30 мм), самый засушливый месяц года.
+     */
+    public static void printPrecipitationCountsOfTheYear() {
+        int[] array = ArrayUtils.generateRandomArray(12, 30, 10);
+        ConsoleUtils.printArray(array);
+        int precipitationAmount = ArrayUtils.calculatesElementsSum(array);
+        float averageMonthlyPrecipitation = ArrayUtils.averageOfElements(array);
+        int dryMonthsCount = ArrayUtils.getElementsCountThatSatisfyTheCondition(
+            array,
+            new ConditionIntSmallerNumber(30)
+        );
+        int driestMonthOfTheYear = ArrayUtils.getBiggestElement(array);
+
+        System.out.println(
+            "Precipitation amount: " + precipitationAmount
+            + ", average monthly precipitation: " + averageMonthlyPrecipitation
+            + ", dry months count: " + dryMonthsCount
+            + ", the driest month of the year: " + driestMonthOfTheYear
+        );
+    }
+
+    /**
+     * Task #33
+     * Найти количество четных элементов одномерного массива.
+     */
+    public static void printEvenElementsCount() {
+        int[] array = ArrayUtils.generateRandomArray(10);
+        ConsoleUtils.printArray(array);
+        int count = ArrayUtils.getElementsCountThatSatisfyTheCondition(array, new ConditionIntEven());
+        System.out.println("Count: " + count);
+    }
+
+    /**
+     * Task #34
+     * Найти количество четных элементов одномерного массива до первого встреченного числа равного
+     * наперед заданному числу а.
+     */
+    public static void printEvenElementsCountBeforeNumber() {
+       int[] array = ArrayUtils.generateRandomArray(15);
+       ConsoleUtils.printArray(array);
+       int number = ConsoleUtils.requestIntNumber();
+       int count = 0;
+
+       for (int element : array) {
+           if (element == number) {
+               break;
+           }
+           if (NumberUtils.isEven(element)) {
+               count++;
+           }
+       }
+       System.out.println("Count: " + count);
+    }
+
+    /**
+     * Task #35
+     * Вычислить среднее арифметическое значение тех элементов одномерного массива, которые расположены за первым
+     * по порядку минимальным элементом.
+     */
+    public static void gg1() {
+        // TODO
+    }
+
+    /**
+     * Task #36
+     * Вычислить среднее арифметическое значение тех элементов одномерного массива,
+     * которые попадают в интервал от –2 до 10.
+     */
+    public static void printAverageOfElementsThatInRange() {
+        int[] array = ArrayUtils.generateRandomArray(20);
+        ConsoleUtils.printArray(array);
+        int sum = 0;
+        int count = 0;
+
+        for (int number : array) {
+            if (number >= - 2 && number < 10) {
+                sum += number;
+                count++;
+            }
+        }
+
+        System.out.println("Average: " + (float) sum / count);
+    }
+
+    /**
+     * Task #37
+     * Переменной t присвоить значение истина, если в одномерном массиве имеется хотя бы одно отрицательное
+     * и четное число.
+     */
+    public static void printIfArrayHasEventAndNegativeNumber() {
+        int[] array = ArrayUtils.generateRandomArray(20, 100, -50);
+        ConsoleUtils.printArray(array);
+        boolean t = false;
+
+        for (int number : array) {
+            if (NumberUtils.isEven(number) && NumberUtils.isNegative(number)) {
+                t = true;
+                break;
+            }
+        }
+
+        System.out.println("Result: " + t);
+    }
+
+    /**
+     * Task #38
+     * Вычислить сумму четных элементов одномерного массива до первого встреченного нулевого элемента.
+     */
+    public static void printElementsSumBeforeFirstZero() {
+        int[] array = ArrayUtils.generateRandomArray(15, 30, -15);
+        ConsoleUtils.printArray(array);
+        int sum = 0;
+
+        for (int number : array) {
+            if (number == 0) {
+                break;
+            }
+            if (NumberUtils.isEven(number)) {
+                sum += number;
+            }
+        }
+        System.out.println("Sum: " + sum);
+    }
+
+    /**
+     * Task #39
+     * Переменной t присвоить значение истина, если максимальный элемент одномерного массива единственный
+     * и не превосходит наперед заданного числа а.
+     */
+    public static void printIfArrayHasSingleBiggestElementAndItsNotBiggerThatGivenNumber() {
+        int[] array = ArrayUtils.generateRandomArray(20, 30, -15);
+        ConsoleUtils.printArray(array);
+        int numberToCompare = ConsoleUtils.requestIntNumber();
+        int biggestElement = array[0];
+        boolean isBiggestElementSingle = true;
+        boolean t = false;
+
+        for (int i = 1; i < array.length; i++) {
+            if (biggestElement == array[i]) {
+                isBiggestElementSingle = false;
+            }
+            if (biggestElement < array[i]) {
+                biggestElement = array[i];
+                isBiggestElementSingle = true;
+            }
+        }
+
+        if (isBiggestElementSingle && biggestElement <= numberToCompare) {
+            t = true;
+        }
+
+        System.out.println("Result: " + t);
+    }
+
+    /**
+     * Task #40
+     * В доме, состоящем из 30 квартир, переселить жильцов так, чтобы жильцы первой квартиры переехали в тридцатую,
+     * из тридцатой - в первую, из второй - в 29 и т.д., найдите количество квартир, в которых проживает более 5 человек.
+     */
+    public static void printReplacedArrayAndCountBigger() {
+        int[] array = ArrayUtils.generateRandomArray(30, 10, 4);
+        ConsoleUtils.printArray(array);
+        for (int i = 0; i < array.length / 2; i++) {
+            int tmp = array[i];
+            array[i] = array[array.length - 1 - i];
+            array[array.length - 1 - i] = tmp;
+        }
+        ConsoleUtils.printArray(array);
+        int count = ArrayUtils.getElementsCountThatSatisfyTheCondition(array, new ConditionIntBiggerNumber(5));
+        System.out.println("Count: " + count);
+    }
+
+    /**
+     * Task #41
+     * В сказочной стране Лукоморье в целях экономии топлива все грузы перевозят на Змей Горыночах, имеющих свой
+     * бортовой номер от 1 до 100. Количество голов Змея определяет его грузоподъемность.
+     * В архиве К. Бессмертного заведено личное дело на каждого Змея Горыноча с информацией о количестве голов
+     * и бортовом номере Однажды на Калиновом мосту грузовым Змеем Горыночем была сбита гражданка Баба Яга.
+     * Нарушитель скрылся, но свидетели показали, что число голов Змея кратно его бортовому номеру.
+     * Помогите Д. Никитичу следователю по ДТП выяснить нарушителя.
+     */
+    public static void printIntruder() {
+        int ANIMAL_COUNT = 100;
+        int[] onBoardNumbers = ArrayUtils.generateArrayAsSequence(ANIMAL_COUNT, 1, 1, SortDirectionEnum.ASC);
+        int[] heads = ArrayUtils.generateRandomArray(ANIMAL_COUNT, 11, 1);
+        ConsoleUtils.printArray(onBoardNumbers);
+        ConsoleUtils.printArray(heads);
+        int index = -1;
+
+        for (int i = 0; i < ANIMAL_COUNT; i++) {
+            if (heads[i] % onBoardNumbers[i] == 0) {
+                index = i;
+                break;
+            }
+        }
+
+        String message;
+
+        if (index > -1) {
+            message = "Index: " + index + ", onBoardNumber: " + onBoardNumbers[index] + ", head: " + heads[index];
+        } else {
+            message = "Not found";
+        }
+
+        System.out.println(message);
     }
 
     /**

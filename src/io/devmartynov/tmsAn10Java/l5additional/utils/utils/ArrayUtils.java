@@ -9,12 +9,17 @@ import java.util.Arrays;
 public class ArrayUtils {
     private static final int DEFAULT_ELEMENT_RANGE = 100;
 
+    /**
+     * Gets int array from console by requesting number step by step
+     * @param size size of array
+     * @return int array
+     */
     public static int[] getArrayFromConsole(int size) {
         int i = 0;
         int[] array = new int[size];
 
         while (i < size) {
-            System.out.print("Enter array element with index " + i + ": ");
+            System.out.print(ConsoleUtils.REQUEST_ARRAY_MESSAGE + i + ": ");
             array[i] = ConsoleUtils.requestIntNumber();
             i++;
         }
@@ -22,6 +27,29 @@ public class ArrayUtils {
         return array;
     }
 
+    /**
+     * Gets float array from console by requesting number step by step
+     * @param size size of array
+     * @return float array
+     */
+    public static float[] getFloatArrayFromConsole(int size) {
+        int i = 0;
+        float[] array = new float[size];
+
+        while (i < size) {
+            System.out.print(ConsoleUtils.REQUEST_ARRAY_MESSAGE + i + ": ");
+            array[i] = ConsoleUtils.requestFloatNumber();
+            i++;
+        }
+
+        return array;
+    }
+
+    /**
+     * Increases every element in array by multiplying on multiplier
+     * @param array array
+     * @param multiplier multiplier
+     */
     public static void increaseArrayByMultiplier(int[] array, int multiplier) {
         for (int i = 0; i < array.length; i++) {
             array[i] *= multiplier;
@@ -163,16 +191,16 @@ public class ArrayUtils {
     public static int[] generateArrayAsSequence(int size, int begin, int multiplier, SortDirectionEnum direction) {
         int[] array = new int[size];
 
-        for (int i = begin / multiplier; i < size; i++) {
-            array[direction.equals(SortDirectionEnum.ASC) ? i : size - 1 - i] = multiplier * i;
+        for (int i = 0, j = begin / multiplier; i < size; i++, j++) {
+            array[direction.equals(SortDirectionEnum.ASC) ? i : size - 1 - i] = multiplier * j;
         }
 
         return array;
     }
 
     /**
-     * Finds the smallest element in array
-     * @param array array
+     * Finds the smallest element in int array
+     * @param array int array
      * @return found element
      */
     public static int getSmallestElement(int[] array) {
@@ -181,12 +209,39 @@ public class ArrayUtils {
     }
 
     /**
-     * Finds the biggest element in array
-     * @param array array
+     * Finds the smallest element in float array
+     * @param array float array
      * @return found element
      */
-    public static int findBiggestElement(int[] array) {
+    public static float getSmallestElement(float[] array) {
+        Arrays.sort(array);
+        return array[0];
+    }
+
+    /**
+     * Finds the biggest element in int array
+     * @param array array
+     * @return found int element
+     */
+    public static int getBiggestElement(int[] array) {
         int biggestElement = array[0];
+
+        for (int i = 1; i < array.length; i++) {
+            if (biggestElement < array[i]) {
+                biggestElement = array[i];
+            }
+        }
+
+        return biggestElement;
+    }
+
+    /**
+     * Finds the biggest element in float array
+     * @param array array
+     * @return found float element
+     */
+    public static float getBiggestElement(float[] array) {
+        float biggestElement = array[0];
 
         for (int i = 1; i < array.length; i++) {
             if (biggestElement < array[i]) {
@@ -202,7 +257,7 @@ public class ArrayUtils {
      * @param array array
      * @return array where first element is the biggest element, second is the biggest element index
      */
-    public static int[] findBiggestElementAndItsIndex(int[] array) {
+    public static int[] getBiggestElementAndItsIndex(int[] array) {
         int biggestElement = array[0];
         int biggestElementIndex = 0;
 
@@ -244,6 +299,21 @@ public class ArrayUtils {
                 array[i] = replaceNumber;
             }
         }
+    }
+
+    /**
+     * Calculates sum of all array elements.
+     * @param array int array
+     * @return sum
+     */
+    public static int calculatesElementsSum(int[] array) {
+        int sum = 0;
+
+        for (float number : array) {
+            sum += number;
+        }
+
+        return sum;
     }
 
     /**
@@ -328,5 +398,23 @@ public class ArrayUtils {
         }
 
         return product;
+    }
+
+    /**
+     * Gets count of elements that satisfy the condition
+     * @param array int array
+     * @param condition int condition
+     * @return count
+     */
+    public static int getElementsCountThatSatisfyTheCondition(int[] array, ConditionInt condition) {
+        int count = 0;
+
+        for (int number : array) {
+            if (condition.check(number)) {
+                count++;
+            }
+        }
+
+        return count;
     }
 }
