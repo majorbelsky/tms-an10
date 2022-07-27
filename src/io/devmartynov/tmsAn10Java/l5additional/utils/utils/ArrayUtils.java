@@ -11,6 +11,7 @@ public class ArrayUtils {
 
     /**
      * Gets int array from console by requesting number step by step
+     *
      * @param size size of array
      * @return int array
      */
@@ -29,6 +30,7 @@ public class ArrayUtils {
 
     /**
      * Gets float array from console by requesting number step by step
+     *
      * @param size size of array
      * @return float array
      */
@@ -47,7 +49,8 @@ public class ArrayUtils {
 
     /**
      * Increases every element in array by multiplying on multiplier
-     * @param array array
+     *
+     * @param array      array
      * @param multiplier multiplier
      */
     public static void increaseArrayByMultiplier(int[] array, int multiplier) {
@@ -58,6 +61,7 @@ public class ArrayUtils {
 
     /**
      * Calculates average of array elements
+     *
      * @param array array of integers
      * @return average of elements in array
      */
@@ -73,6 +77,7 @@ public class ArrayUtils {
 
     /**
      * Calculates average of array elements
+     *
      * @param array array of float numbers
      * @return average of elements in array
      */
@@ -88,8 +93,9 @@ public class ArrayUtils {
 
     /**
      * Generates array of random elements
-     * @param size size of array
-     * @param range range of array element
+     *
+     * @param size          size of array
+     * @param range         range of array element
      * @param startPosition start position
      * @return array
      */
@@ -105,7 +111,8 @@ public class ArrayUtils {
 
     /**
      * Generates array of random elements
-     * @param size size of array
+     *
+     * @param size  size of array
      * @param range range of array element
      * @return array
      */
@@ -121,6 +128,7 @@ public class ArrayUtils {
 
     /**
      * Generates array of random elements
+     *
      * @param size size of array
      * @return array
      */
@@ -136,6 +144,7 @@ public class ArrayUtils {
 
     /**
      * Generates array of random float elements
+     *
      * @param size size of array
      * @return array of floats
      */
@@ -151,7 +160,8 @@ public class ArrayUtils {
 
     /**
      * Generates array of random elements
-     * @param size size of array
+     *
+     * @param size  size of array
      * @param range range of array element
      * @return array
      */
@@ -167,8 +177,9 @@ public class ArrayUtils {
 
     /**
      * Generates array of random elements
-     * @param size size of array
-     * @param range range of array element
+     *
+     * @param size          size of array
+     * @param range         range of array element
      * @param startPosition start position
      * @return array
      */
@@ -184,9 +195,10 @@ public class ArrayUtils {
 
     /**
      * Generates linear array.
-     * @param begin array starts with this number
+     *
+     * @param begin      array starts with this number
      * @param multiplier index of array multiply to this number
-     * @param size size of array
+     * @param size       size of array
      */
     public static int[] generateArrayAsSequence(int size, int begin, int multiplier, SortDirectionEnum direction) {
         int[] array = new int[size];
@@ -200,6 +212,7 @@ public class ArrayUtils {
 
     /**
      * Finds the smallest element in int array
+     *
      * @param array int array
      * @return found element
      */
@@ -210,6 +223,7 @@ public class ArrayUtils {
 
     /**
      * Finds the smallest element in float array
+     *
      * @param array float array
      * @return found element
      */
@@ -220,6 +234,7 @@ public class ArrayUtils {
 
     /**
      * Finds the smallest element and its index in array
+     *
      * @param array array
      * @return array where first element is the smallest element, second is the smallest element index
      */
@@ -239,6 +254,7 @@ public class ArrayUtils {
 
     /**
      * Finds the biggest element in int array
+     *
      * @param array array
      * @return found int element
      */
@@ -256,6 +272,7 @@ public class ArrayUtils {
 
     /**
      * Finds the biggest element in float array
+     *
      * @param array array
      * @return found float element
      */
@@ -273,6 +290,7 @@ public class ArrayUtils {
 
     /**
      * Finds the biggest element and its index in array
+     *
      * @param array array
      * @return array where first element is the biggest element, second is the biggest element index
      */
@@ -292,6 +310,7 @@ public class ArrayUtils {
 
     /**
      * Gets count of negative elements in array
+     *
      * @param array array
      * @return count
      */
@@ -309,7 +328,8 @@ public class ArrayUtils {
 
     /**
      * Replaces every negative element in array with given number
-     * @param array array
+     *
+     * @param array         array
      * @param replaceNumber number
      */
     public static void replaceNegativeElementsWith(int[] array, int replaceNumber) {
@@ -322,6 +342,7 @@ public class ArrayUtils {
 
     /**
      * Calculates sum of all array elements.
+     *
      * @param array int array
      * @return sum
      */
@@ -337,7 +358,8 @@ public class ArrayUtils {
 
     /**
      * Calculates sum of all array elements that satisfy condition
-     * @param array float array
+     *
+     * @param array     float array
      * @param condition ConditionFloat
      * @return sum
      */
@@ -355,7 +377,8 @@ public class ArrayUtils {
 
     /**
      * Calculates sum of all array elements that satisfy condition
-     * @param array int array
+     *
+     * @param array     int array
      * @param condition ConditionInt
      * @return sum
      */
@@ -373,7 +396,8 @@ public class ArrayUtils {
 
     /**
      * Calculates product of all array elements that satisfy condition
-     * @param array int array
+     *
+     * @param array     int array
      * @param condition ConditionInt
      * @return product
      */
@@ -397,7 +421,8 @@ public class ArrayUtils {
 
     /**
      * Calculates product of all array elements that satisfy condition
-     * @param array float array
+     *
+     * @param array     float array
      * @param condition ConditionInt
      * @return product
      */
@@ -421,7 +446,8 @@ public class ArrayUtils {
 
     /**
      * Gets count of elements that satisfy the condition
-     * @param array int array
+     *
+     * @param array     int array
      * @param condition int condition
      * @return count
      */
@@ -438,19 +464,10 @@ public class ArrayUtils {
     }
 
     /**
-     * Resizes array
-     * @param array array
-     * @param newSize newSize
-     * @return array with new size
-     */
-    public static int[] resize(int[] array, int newSize) {
-        return Arrays.copyOfRange(array, 0, newSize);
-    }
-
-    /**
      * Removes duplicates of given element and return array.
+     *
      * @param array array
-     * @param str str to search for duplication
+     * @param str   str to search for duplication
      * @return array without duplication of str
      */
     public static String[] arrayWithoutDuplicatesOf(String[] array, String str) {
@@ -475,6 +492,7 @@ public class ArrayUtils {
 
     /**
      * Swaps elements in array: first -> last, second -> before last, ...
+     *
      * @param array array
      */
     public static void swapElements(String[] array) {
@@ -484,8 +502,10 @@ public class ArrayUtils {
             array[array.length - 1 - i] = tmp;
         }
     }
+
     /**
      * Swaps elements in array: first -> last, second -> before last, ...
+     *
      * @param array array
      */
     public static void swapElements(int[] array) {
@@ -498,7 +518,8 @@ public class ArrayUtils {
 
     /**
      * Finds index of given element.
-     * @param array array
+     *
+     * @param array   array
      * @param element element
      * @return -1 if element doesn't exist in array otherwise index
      */

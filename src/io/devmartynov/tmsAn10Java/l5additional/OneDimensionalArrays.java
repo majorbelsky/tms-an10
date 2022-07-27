@@ -894,7 +894,7 @@ public class OneDimensionalArrays {
             return;
         }
 
-        int[] resultArray = ArrayUtils.resize(newArray, counter);
+        int[] resultArray = Arrays.copyOfRange(newArray, 0, counter);
         ConsoleUtils.printArray(resultArray);
     }
 
