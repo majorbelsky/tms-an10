@@ -14,66 +14,75 @@ public class OneDimensionalArrays {
     private static final int DECADE = 10;
 
     public static void main(String[] args) {
-        printAverageOfArrayElements();
-        printRootAndSquareOfArrayElements();
-        printSurnames();
-        printSurnameThatStartsWith();
-        printRandomIncreasedArray();
-        printNegativeElementsCountInArray();
-        printArrayWithReplacedNegativeNumbers();
-        printBiggestElementOfArray();
-        gg9();
-        printDaysNumberWithTemperatureBelow10();
-        printDaysCountForSwimming();
-        printPrecipitations();
-        printCountWhenTemperatureHigherThanAverage();
-        printWindStatement();
-        printMinValueInArray();
-        printDistance();
-        printIsOrderedArray();
-        printSumOfPositiveElementsOfArray();
-        printSumOfEvenElementsOfArray();
-        printProductOfElementsThatAreMultipliesOfSeven();
-        printSumOfElementsThatHaveNotEventIndex();
-        printProductOfElementsThatLessZero();
-        printSumOfElementsThatRemainderOfTheDivisionBy2Is3();
-        printSumOfElementsWhichIsBiggerThanNumber();
-        printProductOfElementsWhichIsSmallerThanNumber();
-        printProductOfElementsThatRemainderOfTheDivisionBy3And9();
-        printSumOfElementsThatSmallerAverageOfElements();
-        printSumOfElementsThatRemainderOfTheDivisionBy5And8();
-        printProductOfAllArrayElementsRemainderOfTheDivisionBy5();
-        printAscSortedArray();
-        printTemperatureAnalysis();
-        printPrecipitationCountsOfTheYear();
-        printEvenElementsCount();
-        printEvenElementsCountBeforeNumber();
-        gg35();
-        printAverageOfElementsThatInRange();
-        printIfArrayHasEventAndNegativeNumber();
-        printElementsSumBeforeFirstZero();
-        printIfArrayHasSingleBiggestElementAndItsNotBiggerThatGivenNumber();
-        printReplacedArrayAndCountBigger();
-        printIntruder();
-        gg42();
-        printThreeConsecutiveElements();
-        gg44();
-        printIfMultipleAAndNotMultipleB();
-        printElementsCountThatEqualsItsIndexAndMultiply3();
-        printElementsThatBiggerThanItsIndexOn10();
-        printMaxElementWithEvenIndexAndCheckIfItsSingle();
-        printElementsBeforeMinElement();
-        printProductOfElementsThatIsNotZero();
-        printNewArrayWithReplacedElements();
-        printTwoElementWithMaxSum();
-        printIfArrayHasDuplicates();
-        printArrayWithoutDuplicates();
-        printSwappedElements();
-        printPhoneBySurname();
-        printServicesAndPricesAfterPrice();
-        printOutsiderTeams();
-        printMergedArrays();
-        printIsWinner();
+//        printAverageOfArrayElements();
+//        printRootAndSquareOfArrayElements();
+//        printSurnames();
+//        printSurnameThatStartsWith();
+//        printRandomIncreasedArray();
+//        printNegativeElementsCountInArray();
+//        printArrayWithReplacedNegativeNumbers();
+//        printBiggestElementOfArray();
+//        gg9();
+//        printDaysNumberWithTemperatureBelow10();
+//        printDaysCountForSwimming();
+//        printPrecipitations();
+//        printCountWhenTemperatureHigherThanAverage();
+//        printWindStatement();
+//        printMinValueInArray();
+//        printDistance();
+//        printIsOrderedArray();
+//        printSumOfPositiveElementsOfArray();
+//        printSumOfEvenElementsOfArray();
+//        printProductOfElementsThatAreMultipliesOfSeven();
+//        printSumOfElementsThatHaveNotEventIndex();
+//        printProductOfElementsThatLessZero();
+//        printSumOfElementsThatRemainderOfTheDivisionBy2Is3();
+//        printSumOfElementsWhichIsBiggerThanNumber();
+//        printProductOfElementsWhichIsSmallerThanNumber();
+//        printProductOfElementsThatRemainderOfTheDivisionBy3And9();
+//        printSumOfElementsThatSmallerAverageOfElements();
+//        printSumOfElementsThatRemainderOfTheDivisionBy5And8();
+//        printProductOfAllArrayElementsRemainderOfTheDivisionBy5();
+//        printAscSortedArray();
+//        printTemperatureAnalysis();
+//        printPrecipitationCountsOfTheYear();
+//        printEvenElementsCount();
+//        printEvenElementsCountBeforeNumber();
+//        gg35();
+//        printAverageOfElementsThatInRange();
+//        printIfArrayHasEventAndNegativeNumber();
+//        printElementsSumBeforeFirstZero();
+//        printIfArrayHasSingleBiggestElementAndItsNotBiggerThatGivenNumber();
+//        printReplacedArrayAndCountBigger();
+//        printIntruder();
+//        gg42();
+//        printThreeConsecutiveElements();
+//        gg44();
+//        printIfMultipleAAndNotMultipleB();
+//        printElementsCountThatEqualsItsIndexAndMultiply3();
+//        printElementsThatBiggerThanItsIndexOn10();
+//        printMaxElementWithEvenIndexAndCheckIfItsSingle();
+//        printElementsBeforeMinElement();
+//        printProductOfElementsThatIsNotZero();
+//        printNewArrayWithReplacedElements();
+//        printTwoElementWithMaxSum();
+//        printIfArrayHasDuplicates();
+//        printArrayWithoutDuplicates();
+//        printSwappedElements();
+//        printPhoneBySurname();
+//        printServicesAndPricesAfterPrice();
+//        printOutsiderTeams();
+//        printMergedArrays();
+//        printIsWinner();
+//        printArrayWithMaxNumberAfter();
+//        printSalary();
+//        printMergeByMultiply();
+//        gg65();
+//        printDuplicatesCount();
+//        printCountOfUniqueNumbers();
+//        printBiggestCountOfEqualsNumbers();
+//        printIfArraysCanBeEqualsByReplacing();
+        printCountPermutations();
     }
 
     /**
@@ -1201,4 +1210,214 @@ public class OneDimensionalArrays {
         boolean isWinner = ArrayUtils.findIndexOfElement(array, number) != -1;
         System.out.println("Is winner: " + isWinner);
     }
+
+    /**
+     * Task #62
+     * В линейном массиве найти максимальный элемент. Вставьте порядковый номер элемента за ним,
+     * передвинув все оставшиеся на одну позицию вправо.
+     */
+    public static void printArrayWithMaxNumberAfter() {
+        int[] array = ArrayUtils.generateRandomArray(5);
+        ConsoleUtils.printArray(array);
+        int[] maxAndMaxIndex = ArrayUtils.getBiggestElementAndItsIndex(array);
+        int[] newArray = new int[array.length + 1];
+        int indexOfMaxElement = maxAndMaxIndex[1];
+
+        System.arraycopy(array, 0, newArray, 0, indexOfMaxElement + 1);
+        newArray[indexOfMaxElement + 1] = indexOfMaxElement;
+        System.arraycopy(
+            array,
+            indexOfMaxElement + 1,
+            newArray,
+            indexOfMaxElement + 2,
+            array.length - indexOfMaxElement - 1
+        );
+        ConsoleUtils.printArray(newArray);
+    }
+
+    /**
+     * Task #63
+     * Ведомость на зарплату представлена как две таблицы. Одна содержит фамилии работников цеха,
+     * а вторая – их зарплату за текущий месяц. Найдите фамилию работника, зарплата которого наименее
+     * отклоняется от средней зарплаты всех работников за текущий месяц. Найдите фамилии двух работников
+     * с наибольшей зарплатой. Удалите из ведомости на зарплату сведения о работнике, зарплата которого минимальна.
+     */
+    public static void printSalary() {
+        String[] surnames = {"Martynov", "Ivanov", "Orlov", "Goncharov"};
+        int[] salary = {22946, 24906, 23244, 28756};
+        ConsoleUtils.printArray(surnames);
+        ConsoleUtils.printArray(salary);
+        float averageOfSalary = ArrayUtils.averageOfElements(salary);
+        System.out.println("Average salary: " + averageOfSalary);
+
+        int smallestDeviation = Math.abs((int) (salary[0] - averageOfSalary));
+        int employeeWithSmallestDeviationIndex = 0;
+
+        int biggestSalaryIndex = 0;
+        int beforeBiggestSalaryIndex = 0;
+
+        int smallestSalaryIndex = 0;
+
+        for (int i = 1; i < salary.length; i++) {
+            int tmp = Math.abs((int) (salary[i] - averageOfSalary));
+
+            if (smallestDeviation > tmp) {
+                smallestDeviation = tmp;
+                employeeWithSmallestDeviationIndex = i;
+            }
+
+            if (salary[biggestSalaryIndex] < salary[i]) {
+                beforeBiggestSalaryIndex = biggestSalaryIndex;
+                biggestSalaryIndex = i;
+            }
+
+            if (salary[smallestSalaryIndex] > salary[i]) {
+                smallestSalaryIndex = i;
+            }
+        }
+        System.out.println(
+            "Employee surname with the smallest salary deviation: " + surnames[employeeWithSmallestDeviationIndex]
+        );
+        System.out.println(
+            "Employee surname with the biggest salary: "
+                + surnames[biggestSalaryIndex] + " and " + surnames[beforeBiggestSalaryIndex]
+        );
+        System.out.println("Employee with smallest salary: "+ surnames[smallestSalaryIndex]);
+
+        surnames = ArrayUtils.removeElement(surnames, surnames[smallestSalaryIndex]);
+        salary = ArrayUtils.removeElement(salary, salary[smallestSalaryIndex]);
+        ConsoleUtils.printArray(surnames);
+        ConsoleUtils.printArray(salary);
+    }
+
+    /**
+     * Task #64
+     * Даны два линейных массива одинаковой размерности. Составить третий массив из произведений элементов
+     * первых двух массивов, стоящих на местах с одинаковым индексом.
+     */
+    public static void printMergeByMultiply() {
+        int SIZE = 5;
+        int[] arrayA = ArrayUtils.generateRandomArray(SIZE);
+        int[] arrayB = ArrayUtils.generateRandomArray(SIZE);
+        ConsoleUtils.printArray(arrayA);
+        ConsoleUtils.printArray(arrayB);
+        int[] mergedArray = new int[SIZE];
+
+        for (int i = 0; i < SIZE; i++) {
+            mergedArray[i] = arrayA[i] * arrayB[i];
+        }
+
+        ConsoleUtils.printArray(mergedArray);
+    }
+
+    /**
+     * Task #65
+     * Дан целочисленный линейный массив из 10 элементов. Найдите наименьшее число K элементов, которое нужно
+     * исключить из последовательности A[1],A[2],…,A[10], чтобы осталась возрастающая последовательность.
+     */
+    public static void gg65() {
+
+    }
+
+    /**
+     * Task #66
+     * Дан одномерный массив целых чисел. Найдите, сколько раз в нем повторяется самое частое число.
+     */
+    public static void printDuplicatesCount() {
+        int[] array = ArrayUtils.generateRandomArray(10, -5, 5);
+        ConsoleUtils.printArray(array);
+        int[] duplicatesElements = new int[array.length];
+        int[] duplicatesCounts = new int[array.length];
+        int j = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            int indexExistedElement = ArrayUtils.findIndexOfElement(duplicatesElements, array[i]);
+
+            if (array[i] == 0) {
+                continue;
+            }
+
+            if (indexExistedElement != -1) {
+                duplicatesCounts[indexExistedElement] += 1;
+            } else {
+                duplicatesElements[j] = array[i];
+                duplicatesCounts[j] += 1;
+                j++;
+            }
+        }
+
+        int[] biggestNumAndItsIndex = ArrayUtils.getBiggestElementAndItsIndex(duplicatesCounts);
+
+        System.out.println(
+            "Most frequent number repeated times: " + array[biggestNumAndItsIndex[1]]
+        );
+    }
+
+    /**
+     * Task #67
+     * Дан одномерный массив из 10 целых чисел. Подсчитайте количество различных чисел в нем.
+     */
+    public static void printCountOfUniqueNumbers() {
+        int[] array = ArrayUtils.generateRandomArray(10, -5, 5);
+        ConsoleUtils.printArray(array);
+        int[] tmpArray = new int[array.length];
+        int count = 0;
+        for (int num : array) {
+            int index = ArrayUtils.findIndexOfElement(tmpArray, num);
+
+            if (index == -1) {
+                tmpArray[count] = num;
+                count++;
+            }
+        }
+        System.out.println("Count: " + count);
+    }
+
+    /**
+     * Task #68
+     * Дан одномерный массив из 10 целых чисел. Подсчитайте наибольшее число одинаковых идущих подряд в нем чисел.
+     */
+    public static void printBiggestCountOfEqualsNumbers() {
+        int[] array = ArrayUtils.generateRandomArray(10, -5, 5);
+        ConsoleUtils.printArray(array);
+        int biggestCount = 1;
+        int count = 1;
+        int currentNum = array[0];
+
+        for (int i = 1; i < array.length; i++) {
+            if (currentNum == array[i]) {
+                if (++count > biggestCount) {
+                    biggestCount = count;
+                }
+            } else {
+                currentNum = array[i];
+                count = 1;
+            }
+        }
+
+        System.out.println("Count: " + biggestCount);
+    }
+
+    /**
+     * Task #69
+     * Составьте программу, проверяющую, можно ли, меняя элементы одномерного массива A, получить одномерный массив B.
+     */
+    public static void printIfArraysCanBeEqualsByReplacing() {
+        int[] arrayA = {1, 3, 2, 1, 0, 5};
+        int[] arrayB = {3, 1, 5, 1, 0, 2};
+        ConsoleUtils.printArray(arrayA);
+        ConsoleUtils.printArray(arrayB);
+        Arrays.sort(arrayA);
+        Arrays.sort(arrayB);
+        System.out.println("Result: " + Arrays.equals(arrayA, arrayB));
+    }
+
+    /**
+     * Task #70
+     * Задан массив А(1:m) попарно различных чисел. Напечатать все перестановки этих чисел.
+     */
+    public static void printCountPermutations() {
+
+    }
+
 }

@@ -533,4 +533,34 @@ public class ArrayUtils {
         }
         return index;
     }
+
+    public static int[] removeElement(int[] array, int element) {
+        boolean found = false;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == element) {
+                found = true;
+                System.arraycopy(array, i + 1, array, i, array.length - i - 1);
+            }
+        }
+        if (found) {
+            return Arrays.copyOfRange(array, 0, array.length - 1);
+        }
+
+        return array;
+    }
+
+    public static String[] removeElement(String[] array, String element) {
+        boolean found = false;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].equals(element)) {
+                found = true;
+                System.arraycopy(array, i + 1, array, i, array.length - i - 1);
+            }
+        }
+        if (found) {
+            return Arrays.copyOfRange(array, 0, array.length - 1);
+        }
+
+        return array;
+    }
 }
