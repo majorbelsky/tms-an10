@@ -437,11 +437,79 @@ public class ArrayUtils {
         return count;
     }
 
+    /**
+     * Resizes array
+     * @param array array
+     * @param newSize newSize
+     * @return array with new size
+     */
     public static int[] resize(int[] array, int newSize) {
-        int[] newArray = new int[newSize];
-        for (int i = 0; i < array.length && i < newSize; ++i) {
-            newArray[i] = array[i];
+        return Arrays.copyOfRange(array, 0, newSize);
+    }
+
+    /**
+     * Removes duplicates of given element and return array.
+     * @param array array
+     * @param str str to search for duplication
+     * @return array without duplication of str
+     */
+    public static String[] arrayWithoutDuplicatesOf(String[] array, String str) {
+        int i = 1;
+        int size = array.length;
+
+        while (i < size) {
+            if (array[i].equals(str)) {
+                System.arraycopy(array, i + 1, array, i, array.length - i - 1);
+                size--;
+            } else {
+                i++;
+            }
         }
-        return newArray;
+
+        if (size == array.length) {
+            return array;
+        }
+
+        return Arrays.copyOfRange(array, 0, size);
+    }
+
+    /**
+     * Swaps elements in array: first -> last, second -> before last, ...
+     * @param array array
+     */
+    public static void swapElements(String[] array) {
+        for (int i = 0; i < array.length / 2; i++) {
+            String tmp = array[i];
+            array[i] = array[array.length - 1 - i];
+            array[array.length - 1 - i] = tmp;
+        }
+    }
+    /**
+     * Swaps elements in array: first -> last, second -> before last, ...
+     * @param array array
+     */
+    public static void swapElements(int[] array) {
+        for (int i = 0; i < array.length / 2; i++) {
+            int tmp = array[i];
+            array[i] = array[array.length - 1 - i];
+            array[array.length - 1 - i] = tmp;
+        }
+    }
+
+    /**
+     * Finds index of given element.
+     * @param array array
+     * @param element element
+     * @return -1 if element doesn't exist in array otherwise index
+     */
+    public static int findIndexOfElement(int[] array, int element) {
+        int index = -1;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == element) {
+                index = i;
+                break;
+            }
+        }
+        return index;
     }
 }

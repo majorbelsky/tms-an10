@@ -13,57 +13,66 @@ public class OneDimensionalArrays {
     private static final int DECADE = 10;
 
     public static void main(String[] args) {
-        printAverageOfArrayElements();
-        printRootAndSquareOfArrayElements();
-        printSurnames();
-        printSurnameThatStartsWith();
-        printRandomIncreasedArray();
-        printNegativeElementsCountInArray();
-        printArrayWithReplacedNegativeNumbers();
-        printBiggestElementOfArray();
-        gg9();
-        printDaysNumberWithTemperatureBelow10();
-        printDaysCountForSwimming();
-        printPrecipitations();
-        printCountWhenTemperatureHigherThanAverage();
-        printWindStatement();
-        printMinValueInArray();
-        printDistance();
-        printIsOrderedArray();
-        printSumOfPositiveElementsOfArray();
-        printSumOfEvenElementsOfArray();
-        printProductOfElementsThatAreMultipliesOfSeven();
-        printSumOfElementsThatHaveNotEventIndex();
-        printProductOfElementsThatLessZero();
-        printSumOfElementsThatRemainderOfTheDivisionBy2Is3();
-        printSumOfElementsWhichIsBiggerThanNumber();
-        printProductOfElementsWhichIsSmallerThanNumber();
-        printProductOfElementsThatRemainderOfTheDivisionBy3And9();
-        printSumOfElementsThatSmallerAverageOfElements();
-        printSumOfElementsThatRemainderOfTheDivisionBy5And8();
-        printProductOfAllArrayElementsRemainderOfTheDivisionBy5();
-        printAscSortedArray();
-        printTemperatureAnalysis();
-        printPrecipitationCountsOfTheYear();
-        printEvenElementsCount();
-        printEvenElementsCountBeforeNumber();
-        gg35();
-        printAverageOfElementsThatInRange();
-        printIfArrayHasEventAndNegativeNumber();
-        printElementsSumBeforeFirstZero();
-        printIfArrayHasSingleBiggestElementAndItsNotBiggerThatGivenNumber();
-        printReplacedArrayAndCountBigger();
-        printIntruder();
-        gg42();
-        printThreeConsecutiveElements();
-        gg44();
-        printIfMultipleAAndNotMultipleB();
-        printElementsCountThatEqualsItsIndexAndMultiply3();
-        printElementsThatBiggerThanItsIndexOn10();
-        printMaxElementWithEvenIndexAndCheckIfItsSingle();
-        printElementsBeforeMinElement();
-        printProductOfElementsThatIsNotZero();
-        printNewArrayWithReplacedElements();
+//        printAverageOfArrayElements();
+//        printRootAndSquareOfArrayElements();
+//        printSurnames();
+//        printSurnameThatStartsWith();
+//        printRandomIncreasedArray();
+//        printNegativeElementsCountInArray();
+//        printArrayWithReplacedNegativeNumbers();
+//        printBiggestElementOfArray();
+//        gg9();
+//        printDaysNumberWithTemperatureBelow10();
+//        printDaysCountForSwimming();
+//        printPrecipitations();
+//        printCountWhenTemperatureHigherThanAverage();
+//        printWindStatement();
+//        printMinValueInArray();
+//        printDistance();
+//        printIsOrderedArray();
+//        printSumOfPositiveElementsOfArray();
+//        printSumOfEvenElementsOfArray();
+//        printProductOfElementsThatAreMultipliesOfSeven();
+//        printSumOfElementsThatHaveNotEventIndex();
+//        printProductOfElementsThatLessZero();
+//        printSumOfElementsThatRemainderOfTheDivisionBy2Is3();
+//        printSumOfElementsWhichIsBiggerThanNumber();
+//        printProductOfElementsWhichIsSmallerThanNumber();
+//        printProductOfElementsThatRemainderOfTheDivisionBy3And9();
+//        printSumOfElementsThatSmallerAverageOfElements();
+//        printSumOfElementsThatRemainderOfTheDivisionBy5And8();
+//        printProductOfAllArrayElementsRemainderOfTheDivisionBy5();
+//        printAscSortedArray();
+//        printTemperatureAnalysis();
+//        printPrecipitationCountsOfTheYear();
+//        printEvenElementsCount();
+//        printEvenElementsCountBeforeNumber();
+//        gg35();
+//        printAverageOfElementsThatInRange();
+//        printIfArrayHasEventAndNegativeNumber();
+//        printElementsSumBeforeFirstZero();
+//        printIfArrayHasSingleBiggestElementAndItsNotBiggerThatGivenNumber();
+//        printReplacedArrayAndCountBigger();
+//        printIntruder();
+//        gg42();
+//        printThreeConsecutiveElements();
+//        gg44();
+//        printIfMultipleAAndNotMultipleB();
+//        printElementsCountThatEqualsItsIndexAndMultiply3();
+//        printElementsThatBiggerThanItsIndexOn10();
+//        printMaxElementWithEvenIndexAndCheckIfItsSingle();
+//        printElementsBeforeMinElement();
+//        printProductOfElementsThatIsNotZero();
+//        printNewArrayWithReplacedElements();
+//        printTwoElementWithMaxSum();
+//        printIfArrayHasDuplicates();
+//        printArrayWithoutDuplicates();
+//        printSwappedElements();
+//        printPhoneBySurname();
+//        printServicesAndPricesAfterPrice();
+//        printOutsiderTeams();
+//        printMergedArrays();
+        printIsWinner();
     }
 
     /**
@@ -735,11 +744,7 @@ public class OneDimensionalArrays {
     public static void printReplacedArrayAndCountBigger() {
         int[] array = ArrayUtils.generateRandomArray(30, 10, 4);
         ConsoleUtils.printArray(array);
-        for (int i = 0; i < array.length / 2; i++) {
-            int tmp = array[i];
-            array[i] = array[array.length - 1 - i];
-            array[array.length - 1 - i] = tmp;
-        }
+        ArrayUtils.swapElements(array);
         ConsoleUtils.printArray(array);
         int count = ArrayUtils.getElementsCountThatSatisfyTheCondition(array, new ConditionIntBiggerNumber(5));
         System.out.println("Count: " + count);
@@ -995,6 +1000,204 @@ public class OneDimensionalArrays {
         }
 
         ConsoleUtils.printArray(array);
+    }
+
+    /**
+     * Task #52
+     * Найдите в линейном массиве два элемента, сумма которых максимальна.
+     */
+    public static void printTwoElementWithMaxSum() {
+        int[] array = {1, 6, 4, 5, 11, 1, 5};
+        ConsoleUtils.printArray(array);
+        int maxSum = array[0] + array[1];
+        int elemA = array[0];
+        int elemB = array[1];
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array.length; j++) {
+                if (i != j && maxSum < array[i] + array[j]) {
+                    maxSum = array[i] + array[j];
+                    elemA = array[i];
+                    elemB = array[j];
+                }
+            }
+        }
+
+        System.out.println("ElemA: " + elemA + ", elemB: " + elemB + ". Sum: " + maxSum);
+    }
+
+    /**
+     * Task #53
+     * Введите массив из 20 элементов и определите, есть ли в нем элементы с одинаковыми значениями.
+     */
+    public static void printIfArrayHasDuplicates() {
+        int[] array = ArrayUtils.getArrayFromConsole(20);
+        ConsoleUtils.printArray(array);
+        int elem = array[0];
+        boolean hasDuplicates = false;
+
+        for (int i = 1; i < array.length; i++) {
+            if (elem == array[i]) {
+                hasDuplicates = true;
+                break;
+            }
+        }
+
+        System.out.println("Has doubles: " + hasDuplicates);
+    }
+
+    /**
+     * Task #54
+     * Сечение крыши имеет форму полукруга с радиусом R м. Сформировать таблицу, содержащую длины опор,
+     * устанавливаемых через каждые R/5 м.
+     */
+    public static void gg54() {
+        // TODO
+    }
+
+    /**
+     * Task #55
+     * Задана таблица названий товаров, выпускаемых заводом. Определите, повторяется ли в этой таблице название
+     * первого товара, и, если повторяется, удалите название первого товара из таблицы.
+     */
+    public static void printArrayWithoutDuplicates() {
+        String[] titles = {"a", "b", "a", "c", "d", "a", "e", "f", "a", "a"};
+        ConsoleUtils.printArray(titles);
+        String[] titlesWithoutDuplicates = ArrayUtils.arrayWithoutDuplicatesOf(titles, "a");
+        ConsoleUtils.printArray(titlesWithoutDuplicates);
+    }
+
+    /**
+     * Task #56
+     * Задан список фамилий брокеров товарной биржи из N человек. Обменяйте местами фамилии брокеров: первого
+     * и последнего, второго и предпоследнего, третьего от начала и третьего от конца и т.д.
+     */
+    public static void printSwappedElements() {
+        String[] array = {"Martynov", "Ivanov", "Orlov", "Goncharov", "Sidorov", "Smirnov", "Egorov", "Matrosov"};
+        ConsoleUtils.printArray(array);
+        ArrayUtils.swapElements(array);
+        ConsoleUtils.printArray(array);
+    }
+
+    /**
+     * Task #57
+     * Составьте программу, облегчающую работу секретаря вашей школы. Напишите программу,
+     * которая поиск номера телефона по введенной фамилии.
+     */
+    public static void printPhoneBySurname() {
+        String[] surnames = {"Martynov", "Ivanov", "Orlov", "Goncharov"};
+        int[] phones = {22946, 24906, 23244, 28756};
+        ConsoleUtils.printArray(surnames);
+        ConsoleUtils.printArray(phones);
+        String surnameToSearch = ConsoleUtils.requestString("Enter surname: ");
+        int phoneIndex = -1;
+
+        for (int i = 0; i < surnames.length; i++) {
+            if (surnameToSearch.equals(surnames[i])) {
+                phoneIndex = i;
+                break;
+            }
+        }
+
+        String message = "Phone number not found";
+
+        if (phoneIndex != -1) {
+            message = "Surname: " + phones[phoneIndex];
+        }
+
+        System.out.println(message);
+    }
+
+    /**
+     * Task #58
+     * Заданы две таблицы. Одна одержит наименование услуг, а другая – расценки за эти услуги.
+     * Удалите из обеих таблиц все, что предшествует услуге, цена которой P рублей.
+     */
+    public static void printServicesAndPricesAfterPrice() {
+        String[] services = {"service1", "service2", "service3", "service4"};
+        int[] prices = {24, 11, 12, 13};
+        ConsoleUtils.printArray(services);
+        ConsoleUtils.printArray(prices);
+        int price = ConsoleUtils.requestIntNumber("Enter service price: ");
+        int index = ArrayUtils.findIndexOfElement(prices, price);
+
+        if (index == -1) {
+            System.out.println("No service by given price!");
+            return;
+        }
+
+        services = Arrays.copyOfRange(services, index, services.length);
+        prices = Arrays.copyOfRange(prices, index, prices.length);
+        ConsoleUtils.printArray(services);
+        ConsoleUtils.printArray(prices);
+    }
+
+    /**
+     * Task #59
+     * Даны список футбольных команд высшей лиги России и количество очков, набранных каждой командой
+     * в чемпионате России. Известно, что нет команд с равным числом очков, а две команды,
+     * набравшие наименьшее число очков, покинут высшую лигу. Какие это команды?
+     */
+    public static void printOutsiderTeams() {
+        String[] footballTeams = {"Real", "Spartak", "Barselona", "Chelsea"};
+        int[] footballTeamsPoints = {12, 13, 28, 1, 11};
+        ConsoleUtils.printArray(footballTeams);
+        ConsoleUtils.printArray(footballTeamsPoints);
+
+        int smallestPointsIndex = 0;
+        int beforeSmallestPointsIndex = 0;
+
+        for (int i = 1; i < footballTeamsPoints.length; i++) {
+            if (footballTeamsPoints[smallestPointsIndex] > footballTeamsPoints[i]) {
+                beforeSmallestPointsIndex = smallestPointsIndex;
+                smallestPointsIndex = i;
+            }
+        }
+
+        System.out.println(
+            "Outsider teams: " + footballTeams[smallestPointsIndex] + " and " + footballTeams[beforeSmallestPointsIndex]
+        );
+    }
+
+    /**
+     * Task #60
+     * Слейте две линейные таблицы A и B в новую таблицу C, поставив элементы таблицы A на нечетные места,
+     * а элементы таблицы B – на четные.
+     */
+    public static void printMergedArrays() {
+        int SIZE = 5;
+        int[] arrayA = ArrayUtils.generateRandomArray(SIZE);
+        int[] arrayB = ArrayUtils.generateRandomArray(SIZE);
+        ConsoleUtils.printArray(arrayA);
+        ConsoleUtils.printArray(arrayB);
+        int[] mergedArray = new int[2 * SIZE];
+        int arrayAIndex = 0;
+        int arrayBIndex = 0;
+
+        for (int i = 0; i < mergedArray.length; i++) {
+            if (NumberUtils.isEven(i)) {
+                mergedArray[i] = arrayB[arrayBIndex];
+                arrayBIndex++;
+            } else {
+                mergedArray[i] = arrayA[arrayAIndex];
+                arrayAIndex++;
+            }
+        }
+
+        ConsoleUtils.printArray(mergedArray);
+    }
+
+    /**
+     * Task #61
+     * В лотерее разыгрывалось 100 билетов. Таблица содержит 10 номеров выигрышных билетов.
+     * Проверьте, является ли билет с номером N выигрышным.
+     */
+    public static void printIsWinner() {
+        int[] array = ArrayUtils.generateRandomArray(10);
+        ConsoleUtils.printArray(array);
+        int number = ConsoleUtils.requestIntNumber();
+        boolean isWinner = ArrayUtils.findIndexOfElement(array, number) != -1;
+        System.out.println("Is winner: " + isWinner);
     }
 
     /**

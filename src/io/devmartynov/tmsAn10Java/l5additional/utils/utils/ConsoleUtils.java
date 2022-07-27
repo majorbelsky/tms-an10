@@ -22,6 +22,15 @@ public class ConsoleUtils {
     }
 
     /**
+     * Requests int number from console with message
+     * @return requested number
+     */
+    public static int requestIntNumber(String prefix) {
+        System.out.print(prefix);
+        return scanner.nextInt();
+    }
+
+    /**
      * Requests float number from console with message
      * @return requested number
      */
@@ -32,6 +41,11 @@ public class ConsoleUtils {
 
     public static String requestString() {
         System.out.print(REQUEST_STRING_MESSAGE);
+        return scanner.next();
+    }
+
+    public static String requestString(String prefix) {
+        System.out.print(prefix);
         return scanner.next();
     }
 
@@ -46,6 +60,13 @@ public class ConsoleUtils {
      * Prints float array.
      */
     public static void printArray(float[] array) {
+        System.out.print(PRINT_ARRAY_PREFIX + Arrays.toString(array) + System.lineSeparator());
+    }
+
+    /**
+     * Prints String array.
+     */
+    public static void printArray(String[] array) {
         System.out.print(PRINT_ARRAY_PREFIX + Arrays.toString(array) + System.lineSeparator());
     }
 
