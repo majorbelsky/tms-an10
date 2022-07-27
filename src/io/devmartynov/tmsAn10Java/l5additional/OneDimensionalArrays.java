@@ -4,6 +4,7 @@ import io.devmartynov.tmsAn10Java.l5additional.utils.*;
 import io.devmartynov.tmsAn10Java.l5additional.utils.condition.*;
 import io.devmartynov.tmsAn10Java.l5additional.utils.utils.ArrayUtils;
 import io.devmartynov.tmsAn10Java.l5additional.utils.utils.ConsoleUtils;
+import io.devmartynov.tmsAn10Java.l5additional.utils.utils.MathUtils;
 import io.devmartynov.tmsAn10Java.l5additional.utils.utils.NumberUtils;
 
 import java.util.Arrays;
@@ -338,7 +339,7 @@ public class OneDimensionalArrays {
         float[] array = new float[10];
         float g = 10f;
         for (int i = 0; i < array.length; i++) {
-            array[i] = calculateDistanceOfFreeFall(0, i, g);
+            array[i] = MathUtils.calculateDistanceOfFreeFall(0, i, g);
         }
         System.out.println("Array: " + Arrays.toString(array));
     }
@@ -460,7 +461,7 @@ public class OneDimensionalArrays {
      */
     public static void printSumOfElementsWhichIsBiggerThanNumber() {
         float toCompareNumber = ConsoleUtils.requestFloatNumber();
-        float[] array = ArrayUtils.generateFloatRandomArray(20, 50 ,50);
+        float[] array = ArrayUtils.generateFloatRandomArray(20, 50, 50);
         ConsoleUtils.printArray(array);
         float sum = ArrayUtils.calculateSumOfAllArrayElementsThatSatisfyTheCondition(
             array,
@@ -573,8 +574,8 @@ public class OneDimensionalArrays {
         float biggestElement = ArrayUtils.getBiggestElement(array);
         System.out.println(
             "Min temperature: " + smallestElement
-            + ", max temperature: " + biggestElement
-            + ", average: " + averageOfElements
+                + ", max temperature: " + biggestElement
+                + ", average: " + averageOfElements
         );
     }
 
@@ -597,9 +598,9 @@ public class OneDimensionalArrays {
 
         System.out.println(
             "Precipitation amount: " + precipitationAmount
-            + ", average monthly precipitation: " + averageMonthlyPrecipitation
-            + ", dry months count: " + dryMonthsCount
-            + ", the driest month of the year: " + driestMonthOfTheYear
+                + ", average monthly precipitation: " + averageMonthlyPrecipitation
+                + ", dry months count: " + dryMonthsCount
+                + ", the driest month of the year: " + driestMonthOfTheYear
         );
     }
 
@@ -620,20 +621,20 @@ public class OneDimensionalArrays {
      * наперед заданному числу а.
      */
     public static void printEvenElementsCountBeforeNumber() {
-       int[] array = ArrayUtils.generateRandomArray(15);
-       ConsoleUtils.printArray(array);
-       int number = ConsoleUtils.requestIntNumber();
-       int count = 0;
+        int[] array = ArrayUtils.generateRandomArray(15);
+        ConsoleUtils.printArray(array);
+        int number = ConsoleUtils.requestIntNumber();
+        int count = 0;
 
-       for (int element : array) {
-           if (element == number) {
-               break;
-           }
-           if (NumberUtils.isEven(element)) {
-               count++;
-           }
-       }
-       System.out.println("Count: " + count);
+        for (int element : array) {
+            if (element == number) {
+                break;
+            }
+            if (NumberUtils.isEven(element)) {
+                count++;
+            }
+        }
+        System.out.println("Count: " + count);
     }
 
     /**
@@ -657,7 +658,7 @@ public class OneDimensionalArrays {
         int count = 0;
 
         for (int number : array) {
-            if (number >= - 2 && number < 10) {
+            if (number >= -2 && number < 10) {
                 sum += number;
                 count++;
             }
@@ -813,7 +814,8 @@ public class OneDimensionalArrays {
                 if (++counter > 3) {
                     r = true;
                     break;
-                };
+                }
+                ;
             } else {
                 currentNumber = array[i];
                 counter = 0;
@@ -1198,18 +1200,5 @@ public class OneDimensionalArrays {
         int number = ConsoleUtils.requestIntNumber();
         boolean isWinner = ArrayUtils.findIndexOfElement(array, number) != -1;
         System.out.println("Is winner: " + isWinner);
-    }
-
-    /**
-     * Calculates passed distance in free fall by time
-     * S = V0 * t + а * t² / 2
-     *
-     * @param initSpeed    initial speed
-     * @param time         pass time
-     * @param acceleration acceleration
-     * @return distance
-     */
-    private static float calculateDistanceOfFreeFall(float initSpeed, int time, float acceleration) {
-        return (initSpeed * time) + acceleration * time * time / 2;
     }
 }
