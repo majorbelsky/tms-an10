@@ -21,6 +21,7 @@ public class OneDimensionalArrays {
         printNegativeElementsCountInArray();
         printArrayWithReplacedNegativeNumbers();
         printBiggestElementOfArray();
+        gg9();
         printDaysNumberWithTemperatureBelow10();
         printDaysCountForSwimming();
         printPrecipitations();
@@ -46,13 +47,23 @@ public class OneDimensionalArrays {
         printPrecipitationCountsOfTheYear();
         printEvenElementsCount();
         printEvenElementsCountBeforeNumber();
-        gg1();
+        gg35();
         printAverageOfElementsThatInRange();
         printIfArrayHasEventAndNegativeNumber();
         printElementsSumBeforeFirstZero();
         printIfArrayHasSingleBiggestElementAndItsNotBiggerThatGivenNumber();
         printReplacedArrayAndCountBigger();
         printIntruder();
+        gg42();
+        printThreeConsecutiveElements();
+        gg44();
+        printIfMultipleAAndNotMultipleB();
+        printElementsCountThatEqualsItsIndexAndMultiply3();
+        printElementsThatBiggerThanItsIndexOn10();
+        printMaxElementWithEvenIndexAndCheckIfItsSingle();
+        printElementsBeforeMinElement();
+        printProductOfElementsThatIsNotZero();
+        printNewArrayWithReplacedElements();
     }
 
     /**
@@ -171,7 +182,7 @@ public class OneDimensionalArrays {
      * С 8 до 20 часов температура воздуха измерялась ежечасно. Известно, что в течение этого времени температура
      * понижалась. Определите, в котором часу была впервые отмечена отрицательная температура.
      */
-    public static void printNegativeTemperatureHour() {
+    public static void gg9() {
         // TODO некорректное условие задачи
     }
 
@@ -621,7 +632,7 @@ public class OneDimensionalArrays {
      * Вычислить среднее арифметическое значение тех элементов одномерного массива, которые расположены за первым
      * по порядку минимальным элементом.
      */
-    public static void gg1() {
+    public static void gg35() {
         // TODO
     }
 
@@ -767,6 +778,223 @@ public class OneDimensionalArrays {
         }
 
         System.out.println(message);
+    }
+
+    /**
+     * Task #42
+     * В одном районе расположен тридцать населенных пунктов. По территории проходит железная дорога.
+     * По просьбе жителей района планируется построить железнодорожную станцию и проложить дороги так,
+     * чтобы сумма расстояний от всех населенных пунктов до станции была минимальной, если участок дороги,
+     * проходящей по территории района прямолинеен. Результат представить графически.
+     */
+    public static void gg42() {
+
+    }
+
+    /**
+     * Task #43
+     * Если в одномерном массиве имеются три подряд идущих одинаковых элемента,
+     * то переменной r присвоить значение истина.
+     */
+    public static void printThreeConsecutiveElements() {
+        int[] array = ArrayUtils.generateRandomArray(100, 5, 2);
+        ConsoleUtils.printArray(array);
+        boolean r = false;
+        int counter = 0;
+        int currentNumber = array[0];
+
+        for (int i = 1; i < array.length; i++) {
+            if (currentNumber == array[i]) {
+                if (++counter > 3) {
+                    r = true;
+                    break;
+                };
+            } else {
+                currentNumber = array[i];
+                counter = 0;
+            }
+        }
+
+        System.out.println("Result: " + r);
+    }
+
+    /**
+     * Task #44
+     * Подсчитать количество элементов одномерного массива, для которых выполняется неравенство i*i<ai<i!
+     */
+    public static void gg44() {
+        // TODO incorrect task. What is i, what is a???
+    }
+
+    /**
+     * Task #45
+     * Заданы два натуральных числа a и b. Переменной w присвоить значение истина, если в одномерном
+     * целочисленном массиве имеется хотя бы один элемент, кратный а и не кратный b.
+     */
+    public static void printIfMultipleAAndNotMultipleB() {
+        int a = ConsoleUtils.requestIntNumber();
+        int b = ConsoleUtils.requestIntNumber();
+        int[] array = ArrayUtils.generateRandomArray(10);
+        ConsoleUtils.printArray(array);
+        boolean w = false;
+
+        for (int number : array) {
+            if (number % a == 0 && number % b != 0) {
+                w = true;
+                break;
+            }
+        }
+
+        System.out.println("Result: " + w);
+    }
+
+    /**
+     * Task #46
+     * Подсчитайте количество элементов одномерного массива, которые совпадают со своим номером и при этом кратны 3.
+     */
+    public static void printElementsCountThatEqualsItsIndexAndMultiply3() {
+        int[] array = ArrayUtils.generateRandomArray(100, -100, 100);
+        ConsoleUtils.printArray(array);
+        int count = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == i && array[i] % 3 == 0) {
+                count++;
+            }
+        }
+
+        System.out.println("Count: " + count);
+    }
+
+    /**
+     * Task #47
+     * Дан одномерный массив а. Сформировать новый массив, который состоит только из тех элементов массива а,
+     * которые превосходят свой номер на 10. Если таких элементов нет, то выдать сообщение.
+     */
+    public static void printElementsThatBiggerThanItsIndexOn10() {
+        int[] array = ArrayUtils.generateRandomArray(100, -100, 100);
+        int[] newArray = new int[array.length];
+        ConsoleUtils.printArray(array);
+        int counter = 0;
+
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] - i == 10) {
+                newArray[counter] = array[i];
+                counter++;
+            }
+        }
+
+        if (counter == 0) {
+            System.out.println("No elements!");
+            return;
+        }
+
+        int[] resultArray = ArrayUtils.resize(newArray, counter);
+        ConsoleUtils.printArray(resultArray);
+    }
+
+    /**
+     * Task #48
+     * Найти наибольший элемент из элементов одномерного массива, имеющих четный номер.
+     * Определить, является ли он единственным.
+     */
+    public static void printMaxElementWithEvenIndexAndCheckIfItsSingle() {
+        int[] array = ArrayUtils.generateRandomArray(100, -100, 100);
+        ConsoleUtils.printArray(array);
+        int counter = 1;
+        int biggestElement = array[0];
+
+        for (int i = 2; i < array.length; i += 2) {
+            if (biggestElement == array[i]) {
+                counter++;
+            }
+            if (biggestElement < array[i]) {
+                biggestElement = array[i];
+                counter = 0;
+            }
+        }
+
+        System.out.println("Max element " + biggestElement + " is" + ((counter > 1) ? " not single." : " single."));
+    }
+
+    /**
+     * Task #49
+     * Сожмите линейный массив, удалив элементы, предшествующие минимальному элементу.
+     */
+    public static void printElementsBeforeMinElement() {
+        int[] array = ArrayUtils.generateRandomArray(100, -100, 100);
+        ConsoleUtils.printArray(array);
+        int[] smallestElementAndItsIndex = ArrayUtils.getSmallestElementAndItsIndex(array);
+        System.out.println(
+            "Min element " + smallestElementAndItsIndex[0] + " with index " + smallestElementAndItsIndex[1]
+        );
+        int[] resultArray = new int[smallestElementAndItsIndex[1]];
+        System.arraycopy(array, 0, resultArray, 0, smallestElementAndItsIndex[1]);
+        ConsoleUtils.printArray(resultArray);
+    }
+
+    /**
+     * Task #50
+     * Задан массив А(1:20). Найти произведение всех его ненулевых элементов.
+     */
+    public static void printProductOfElementsThatIsNotZero() {
+        int[] array = ArrayUtils.generateRandomArray(5, -5, 5);
+        ConsoleUtils.printArray(array);
+        int product = ArrayUtils.calculateProductOfAllArrayElementsThatSatisfyTheCondition(
+            array,
+            new ConditionNotEqualNumber(0)
+        );
+
+        System.out.println("Product: " + product);
+    }
+
+    /**
+     * Task #51
+     * В массиве X(1:n) каждый элемент равен 0, 1 или 5. Переставить элементы массива так,
+     * чтобы сначала располагались все нули, затем все единицы, а затем все пятерки.
+     * Дополнительного массива не заводить.
+     */
+    public static void printNewArrayWithReplacedElements() {
+        int[] array = {1, 0, 5, 1, 1, 5, 0, 5, 1, 0, 5};
+//        int[] array = {5, 1, 0};
+//        int[] array = {5, 0, 0, 1, 0};
+        ConsoleUtils.printArray(array);
+
+        int i = 0;
+        int j = 0;
+        int[] numbersToReplace = {0, 1, 5};
+        int numberToReplaceIndex = 0;
+
+        while (i < array.length && numberToReplaceIndex < numbersToReplace.length) {
+            int num = numbersToReplace[numberToReplaceIndex];
+
+            if (array[i] == num) {
+                while (j < array.length) {
+                    if (array[j] != num) {
+                        if (numberToReplaceIndex != 0 && array[j] != numbersToReplace[numberToReplaceIndex - 1]) {
+                            break;
+                        }
+
+                        int tmp = array[j];
+                        array[j] = num;
+                        array[i] = tmp;
+                        j++;
+                        break;
+                    }
+                    j++;
+                }
+            }
+
+            if (i + 1 == array.length) {
+                i = 0;
+                numberToReplaceIndex++;
+                continue;
+            }
+
+            i++;
+        }
+
+        ConsoleUtils.printArray(array);
     }
 
     /**

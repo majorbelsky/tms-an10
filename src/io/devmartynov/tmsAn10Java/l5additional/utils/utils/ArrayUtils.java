@@ -219,6 +219,25 @@ public class ArrayUtils {
     }
 
     /**
+     * Finds the smallest element and its index in array
+     * @param array array
+     * @return array where first element is the smallest element, second is the smallest element index
+     */
+    public static int[] getSmallestElementAndItsIndex(int[] array) {
+        int smallestElement = array[0];
+        int smallestElementIndex = 0;
+
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < smallestElement) {
+                smallestElement = array[i];
+                smallestElementIndex = i;
+            }
+        }
+
+        return new int[]{smallestElement, smallestElementIndex};
+    }
+
+    /**
      * Finds the biggest element in int array
      * @param array array
      * @return found int element
@@ -416,5 +435,13 @@ public class ArrayUtils {
         }
 
         return count;
+    }
+
+    public static int[] resize(int[] array, int newSize) {
+        int[] newArray = new int[newSize];
+        for (int i = 0; i < array.length && i < newSize; ++i) {
+            newArray[i] = array[i];
+        }
+        return newArray;
     }
 }
