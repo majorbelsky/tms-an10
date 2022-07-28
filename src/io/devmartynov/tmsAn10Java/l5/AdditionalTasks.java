@@ -125,10 +125,8 @@ public class AdditionalTasks {
             {22, 0, -11, -4},
         };
 
-        for (int i = 0; i < array.length; i++) {
-            int[] elements = array[i];
-            Arrays.sort(elements);
-            array[i] = elements;
+        for (int[] ints : array) {
+            Arrays.sort(ints);
         }
 
         System.out.println(Arrays.deepToString(array));
