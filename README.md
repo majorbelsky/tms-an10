@@ -59,5 +59,28 @@
         - void validate()
         + long value()
 </pre>
+        </dd>
+    <dd>
+        <h6>Additional part 1.</h6>
+<pre>
+    Computer
+        - float price
+        - String model
+        - RAM ram
+        - HDD hdd
+        + String toString()
+    RAM
+        - String label
+        - int volume
+        + String toString()
+    HDD
+        - String label
+        - int volume
+        - HDDTypeEnum type
+        + String toString()
+    HDDTypeEnum
+        INTERNAL
+        EXTERNAL
+</pre>
     </dd>
 </dl>
