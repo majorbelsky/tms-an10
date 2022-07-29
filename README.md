@@ -40,4 +40,24 @@
         <p>Method <b>main</b> performs all tasks for class.</p>
         <p><b>No problem with topic.</b></p>
     </dd>
+    <dt>lesson-6. Classes and Objects.</dt>
+    <dd>
+        <h6>Part 1.</h6>
+<pre>
+    CreditCard
+        - AccountNumber accountNumber
+        - Amount amount
+        + void charge(Amount amount) 
+        + void withdraw(Amount amount)
+        + String toString()
+    AccountNumber
+        - long value
+        - void validate()
+        + long value()
+    Amount
+        - double value
+        - void validate()
+        + long value()
+</pre>
+    </dd>
 </dl>
