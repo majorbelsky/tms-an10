@@ -34,10 +34,9 @@ public class CreditCard {
      * Validates amount before charging.
      *
      * @param amount positive number
-     * @throws IllegalArgumentException if validation result has errors
      */
-    public void charge(Amount amount) throws IllegalArgumentException {
-        executeTransaction(amount);
+    public void charge(Amount amount) {
+        this.amount = new Amount(this.amount.value() + amount.value());
     }
 
     /**
@@ -48,10 +47,6 @@ public class CreditCard {
      * @throws IllegalArgumentException if validation result has errors
      */
     public void withdraw(Amount amount) throws IllegalArgumentException {
-        executeTransaction(amount);
-    }
-
-    private void executeTransaction(Amount amount) {
         try {
             this.amount = new Amount(this.amount.value() - amount.value());
         } catch (IllegalArgumentException e) {
