@@ -31,22 +31,19 @@ public class CreditCard {
 
     /**
      * Charges account.
-     * Validates amount before charging.
      *
-     * @param amount positive number
+     * @param amount amount
      */
     public void charge(Amount amount) {
         this.amount = new Amount(this.amount.value() + amount.value());
     }
 
     /**
-     * Withdraws account.
-     * Validates amount before charging.
+     * Withdraws amount.
      *
-     * @param amount positive number
-     * @throws IllegalArgumentException if validation result has errors
+     * @param amount amount
      */
-    public void withdraw(Amount amount) throws IllegalArgumentException {
+    public void withdraw(Amount amount) {
         try {
             this.amount = new Amount(this.amount.value() - amount.value());
         } catch (IllegalArgumentException e) {
