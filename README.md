@@ -40,4 +40,47 @@
         <p>Method <b>main</b> performs all tasks for class.</p>
         <p><b>No problem with topic.</b></p>
     </dd>
+    <dt>lesson-6. Classes and Objects.</dt>
+    <dd>
+        <h6>Part 1.</h6>
+<pre>
+    CreditCard
+        - AccountNumber accountNumber
+        - Amount amount
+        + void charge(Amount amount) 
+        + void withdraw(Amount amount)
+        + String toString()
+    AccountNumber
+        - long value
+        - void validate()
+        + long value()
+    Amount
+        - double value
+        - void validate()
+        + long value()
+</pre>
+        </dd>
+    <dd>
+        <h6>Additional part 1.</h6>
+<pre>
+    Computer
+        - float price
+        - String model
+        - RAM ram
+        - HDD hdd
+        + String toString()
+    RAM
+        - String label
+        - int volume
+        + String toString()
+    HDD
+        - String label
+        - int volume
+        - HDDTypeEnum type
+        + String toString()
+    HDDTypeEnum
+        INTERNAL
+        EXTERNAL
+</pre>
+    </dd>
 </dl>
