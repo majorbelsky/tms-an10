@@ -31,7 +31,7 @@ public class Amount {
 
     /**
      * Validates amount.
-     * Zero amount - is correct amount. There are cases where services checks credit card by withdraw zero amount.
+     * Zero amount - is correct amount. There are cases where services check credit card by withdrawing zero amount.
      *
      * @param amount positive number
      * @return string representation of errors or empty string
