@@ -45,19 +45,11 @@
         <h6>Part 1.</h6>
 <pre>
     CreditCard
-        - AccountNumber accountNumber
-        - Amount amount
-        + void charge(Amount amount) 
-        + void withdraw(Amount amount)
-        + String toString()
-    AccountNumber
-        - long value
-        - void validate()
-        + long value()
-    Amount
-        - double value
-        - void validate()
-        + long value()
+        - long accountNumber
+        - double amount
+        + void charge(double amount) 
+        + void withdraw(double amount)
+        + void displayInfo()
 </pre>
         </dd>
     <dd>
@@ -68,16 +60,23 @@
         - String model
         - RAM ram
         - HDD hdd
-        + String toString()
+        + RAM ram()
+        + HDD hdd()
+        + void displayInfo()
     RAM
         - String label
         - int volume
-        + String toString()
+        + String displayInfo()
+        + boolean setLabel(String label)
+        + boolean setVolume(int volume)
     HDD
         - String label
         - int volume
         - HDDTypeEnum type
-        + String toString()
+        + void displayInfo()
+        + boolean setLabel(String label)
+        + boolean setVolume(int volume)
+        + boolean setType(HDDTypeEnum type)
     HDDTypeEnum
         INTERNAL
         EXTERNAL
