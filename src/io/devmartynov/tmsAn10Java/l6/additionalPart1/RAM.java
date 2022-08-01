@@ -4,19 +4,14 @@ package io.devmartynov.tmsAn10Java.l6.additionalPart1;
  * RAM of computer
  */
 public class RAM {
-    private static final String DEFAULT_LABEL = "TOSHIBA";
-    private static final int DEFAULT_VOLUME = 4000;
-    private final String label;
-    private final int volume;
+    private String label;
+    private int volume;
 
     /**
      * Ctor.
      * Sets default label and volume.
      */
-    public RAM() {
-        this.label = DEFAULT_LABEL;
-        this.volume = DEFAULT_VOLUME;
-    }
+    public RAM() {}
 
     /**
      * Ctor.
@@ -29,11 +24,36 @@ public class RAM {
         this.volume = volume;
     }
 
-    @Override
-    public String toString() {
-        return "RAM{" +
-            "label='" + label + '\'' +
-            ", volume='" + volume + '\'' +
-            '}';
+    /**
+     * Sets label
+     * @param label string
+     * @return true if operations is successful otherwise false
+     */
+    public boolean setLabel(String label) {
+        if (label.length() == 0) {
+            return false;
+        }
+        this.label = label;
+        return true;
+    }
+
+    /**
+     * Sets volume
+     * @param volume number
+     * @return true if operations is successful otherwise false
+     */
+    public boolean setVolume(int volume) {
+        if (volume == 0 || volume % 8 != 0) {
+            return false;
+        }
+        this.volume = volume;
+        return true;
+    }
+
+    /**
+     * Displays info about RAM
+     */
+    public void displaysInfo() {
+        System.out.println("RAM " + label + ", volume: " + volume + ".");
     }
 }
