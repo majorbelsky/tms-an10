@@ -82,4 +82,23 @@
         EXTERNAL
 </pre>
     </dd>
+<dt>lesson-7. Principles of OOP.</dt>
+    <dd>
+        <h6>Part 1.</h6>
+<pre>
+Phone
+    - int phone
+    - int weight
+    - String model
+    + int getPhone() 
+    + int getWeight() 
+    + String getModel() 
+    + void setPhone() 
+    + void setWeight() 
+    + void setModel() 
+    + void receiveCall(String callerName)
+    + void receiveCall(String callerName, int callerPhoneNumber)
+    + void sendMessage(int... numbers)
+</pre>
+        </dd>
 </dl>
