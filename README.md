@@ -101,4 +101,36 @@ Phone
     + void sendMessage(int... numbers)
 </pre>
         </dd>
+<dd>
+        <h6>Additional part 1.</h6>
+<pre>
+Doctor
+    - DoctorSpecializationEnum specialization
+    + treat()
+Surgeon : Doctor
+Dentist : Doctor
+Therapist : Doctor
+Patient
+    - TreatmentPlan treatmentPlan
+    - Doctor doctor
+    + Doctor getDoctor()
+    + TreatmentPlan getTreatmentPlan()
+    + void setDoctor()
+    + void setTreatmentPlan()
+TreatmentPlan
+    - TreatmentPlanCodeEnum code
+    + TreatmentPlanCodeEnum getCode()
+Hospital
+    - Doctor surgeon
+    - Doctor dentist
+    - Doctor therapist
+    + void appointDoctorTo(Patient patient)
+DoctorSpecializationEnum
+    SURGEON, THERAPIST, DENTIST
+TreatmentPlanCodeEnum
+    ONE, TWO, THREE
+
+    
+</pre>
+        </dd>
 </dl>
