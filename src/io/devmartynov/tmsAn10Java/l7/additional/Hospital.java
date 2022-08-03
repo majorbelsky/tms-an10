@@ -6,21 +6,17 @@ import io.devmartynov.tmsAn10Java.l7.additional.doctor.Doctor;
  * Hospital
  */
 public class Hospital {
-    private Doctor surgeon;
-    private Doctor dentist;
-    private Doctor therapist;
+    private Doctor[] doctors;
+    private PatientCard[] patientCards;
 
     /**
      * Ctor.
      *
-     * @param surgeon   surgeon
-     * @param dentist   dentist
-     * @param therapist therapist
+     * @param doctors doctors
      */
-    public Hospital(Doctor surgeon, Doctor dentist, Doctor therapist) {
-        this.surgeon = surgeon;
-        this.dentist = dentist;
-        this.therapist = therapist;
+    public Hospital(Doctor[] doctors) {
+        this.doctors = doctors;
+        patientCards = new PatientCard[0];
     }
 
     /**
@@ -29,14 +25,58 @@ public class Hospital {
      * @param patient patient
      */
     public void appointDoctorTo(Patient patient) {
-        Doctor doctor = therapist;
-        TreatmentPlanCodeEnum code = patient.getTreatmentPlan().getCode();
-        if (code == TreatmentPlanCodeEnum.ONE) {
-            doctor = surgeon;
-        } else if (code == TreatmentPlanCodeEnum.TWO) {
-            doctor = dentist;
+        PatientCard patientCard = new PatientCard(
+            patient,
+            findDoctor(patient.getTreatmentPlan().getCode())
+        );
+        Array<PatientCard> array = new Array<>(patientCards);
+        array.addElement(patientCard);
+        patientCards = (PatientCard[]) array.getValue();
+    }
+
+    /**
+     * Finds doctor by treatment code
+     *
+     * @param treatmentCode code
+     * @return found doctor
+     */
+    private Doctor findDoctor(int treatmentCode) {
+        Doctor doctor = doctors[2];
+        if (treatmentCode == 1) {
+            doctor = doctors[0];
+        } else if (treatmentCode == 2) {
+            doctor = doctors[1];
         }
-        patient.setDoctor(doctor);
-        patient.getDoctor().treat();
+        return doctor;
+    }
+
+    /**
+     * Finds patient card
+     *
+     * @param patient patient
+     * @return patient card if found otherwise null
+     */
+    private PatientCard findPatientCard(Patient patient) {
+        for (PatientCard patientCard : patientCards) {
+            if (patientCard.getPatient().equals(patient)) {
+                return patientCard;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Starts patient treatment
+     * Creates new patient card if hospital hasn't the one
+     * @param patient patient
+     */
+    public void startTreatment(Patient patient) {
+        PatientCard patientCard = findPatientCard(patient);
+        if (patientCard == null) {
+            appointDoctorTo(patient);
+            startTreatment(patient);
+        } else {
+            patientCard.getDoctor().treat();
+        }
     }
 }

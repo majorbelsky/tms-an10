@@ -4,14 +4,14 @@ package io.devmartynov.tmsAn10Java.l7.additional;
  * TreatmentPlan.
  */
 public class TreatmentPlan {
-    private TreatmentPlanCodeEnum code;
+    private int code;
 
     /**
      * Ctor.
      *
      * @param code code
      */
-    public TreatmentPlan(TreatmentPlanCodeEnum code) {
+    public TreatmentPlan(int code) {
         this.code = code;
     }
 
@@ -20,7 +20,7 @@ public class TreatmentPlan {
      *
      * @return code
      */
-    public TreatmentPlanCodeEnum getCode() {
+    public int getCode() {
         return code;
     }
 }

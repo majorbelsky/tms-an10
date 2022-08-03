@@ -18,12 +18,14 @@ public class Index {
         Doctor surgeon = new Surgeon();
         Doctor dentist = new Dentist();
         Doctor therapist  = new Therapist();
+        Doctor[] doctors = {surgeon, dentist, therapist};
 
-        TreatmentPlan treatmentPlan = new TreatmentPlan(TreatmentPlanCodeEnum.ONE);
+        TreatmentPlan treatmentPlan = new TreatmentPlan(1);
         Patient patient = new Patient();
         patient.setTreatmentPlan(treatmentPlan);
 
-        Hospital hospital = new Hospital(surgeon, dentist, therapist);
+        Hospital hospital = new Hospital(doctors);
         hospital.appointDoctorTo(patient);
+        hospital.startTreatment(patient);
     }
 }

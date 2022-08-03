@@ -7,16 +7,6 @@ import io.devmartynov.tmsAn10Java.l7.additional.doctor.Doctor;
  */
 public class Patient {
     private TreatmentPlan treatmentPlan;
-    private Doctor doctor;
-
-    /**
-     * Doctor
-     *
-     * @return doctor
-     */
-    public Doctor getDoctor() {
-        return doctor;
-    }
 
     /**
      * Treatment plan
@@ -28,16 +18,8 @@ public class Patient {
     }
 
     /**
-     * Sets doctor
-     *
-     * @param doctor doctor
-     */
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
-    }
-
-    /**
      * Sets treatment play
+     *
      * @param treatmentPlan treatment plan
      */
     public void setTreatmentPlan(TreatmentPlan treatmentPlan) {
