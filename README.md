@@ -82,4 +82,55 @@
         EXTERNAL
 </pre>
     </dd>
+<dt>lesson-7. Principles of OOP.</dt>
+    <dd>
+        <h6>Part 1.</h6>
+<pre>
+Phone
+    - int phone
+    - int weight
+    - String model
+    + int getPhone() 
+    + int getWeight() 
+    + String getModel() 
+    + void setPhone() 
+    + void setWeight() 
+    + void setModel() 
+    + void receiveCall(String callerName)
+    + void receiveCall(String callerName, int callerPhoneNumber)
+    + void sendMessage(int... numbers)
+</pre>
+        </dd>
+<dd>
+        <h6>Additional part 1.</h6>
+<pre>
+Doctor
+    - DoctorSpecializationEnum specialization
+    + treat()
+Surgeon : Doctor
+Dentist : Doctor
+Therapist : Doctor
+Patient
+    - TreatmentPlan treatmentPlan
+    - Doctor doctor
+    + Doctor getDoctor()
+    + TreatmentPlan getTreatmentPlan()
+    + void setDoctor()
+    + void setTreatmentPlan()
+TreatmentPlan
+    - TreatmentPlanCodeEnum code
+    + TreatmentPlanCodeEnum getCode()
+Hospital
+    - Doctor surgeon
+    - Doctor dentist
+    - Doctor therapist
+    + void appointDoctorTo(Patient patient)
+DoctorSpecializationEnum
+    SURGEON, THERAPIST, DENTIST
+TreatmentPlanCodeEnum
+    ONE, TWO, THREE
+
+    
+</pre>
+        </dd>
 </dl>
