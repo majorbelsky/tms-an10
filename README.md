@@ -112,23 +112,23 @@ Dentist : Doctor
 Therapist : Doctor
 Patient
     - TreatmentPlan treatmentPlan
-    - Doctor doctor
-    + Doctor getDoctor()
     + TreatmentPlan getTreatmentPlan()
-    + void setDoctor()
     + void setTreatmentPlan()
 TreatmentPlan
-    - TreatmentPlanCodeEnum code
-    + TreatmentPlanCodeEnum getCode()
+    - int code
+    + int getCode()
+PatientCard
+    - Patient patient
+    - Doctor doctor
+    + Patient getPatient()
+    + Doctor getDoctor()
 Hospital
-    - Doctor surgeon
-    - Doctor dentist
-    - Doctor therapist
+    - Doctor[] doctors
+    - PatientCard[] patientCards
     + void appointDoctorTo(Patient patient)
+    + void startTreatment(Patient patient)
 DoctorSpecializationEnum
     SURGEON, THERAPIST, DENTIST
-TreatmentPlanCodeEnum
-    ONE, TWO, THREE
 
     
 </pre>
