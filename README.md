@@ -135,7 +135,7 @@ DoctorSpecializationEnum
         </dd>
 <dt>lesson-7. Principles of OOP.</dt>
     <dd>
-        <h6>Part 1.</h6>
+        <h6>Part 1-1.</h6>
 <pre>
 abstract Figure
  - String name
@@ -151,6 +151,19 @@ Rectangle : Figure
 Triangle : Figure
  + double calculatePerimeter()
  + double calculateArea()
+</pre>
+        </dd>
+<dd>
+        <h6>Part 1-2.</h6>
+<pre>
+interface Employee
+ + void displayPosition()
+Director : Employee
+ + void displayPosition()
+Worker : Employee
+ + void displayPosition()
+Accountant : Employee
+ + void displayPosition()
 </pre>
         </dd>
 </dl>
