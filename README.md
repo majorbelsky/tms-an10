@@ -133,4 +133,24 @@ DoctorSpecializationEnum
     
 </pre>
         </dd>
+<dt>lesson-7. Principles of OOP.</dt>
+    <dd>
+        <h6>Part 1.</h6>
+<pre>
+abstract Figure
+ - String name
+ + String getName()
+ + abstract double calculatePerimeter()
+ + abstract double calculateArea()
+Circle : Figure
+ + double calculatePerimeter()
+ + double calculateArea()
+Rectangle : Figure
+ + double calculatePerimeter()
+ + double calculateArea()
+Triangle : Figure
+ + double calculatePerimeter()
+ + double calculateArea()
+</pre>
+        </dd>
 </dl>
