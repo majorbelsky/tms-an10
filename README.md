@@ -158,11 +158,18 @@ Triangle : Figure
 <pre>
 interface Employee
  + void displayPosition()
+ + String getPosition()
 Director : Employee
+ - String position
+ + String getPosition()
  + void displayPosition()
 Worker : Employee
+ - String position
+ + String getPosition()
  + void displayPosition()
 Accountant : Employee
+ - String position
+ + String getPosition()
  + void displayPosition()
 </pre>
         </dd>
