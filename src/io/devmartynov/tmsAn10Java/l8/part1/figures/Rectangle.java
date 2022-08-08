@@ -4,7 +4,6 @@ package io.devmartynov.tmsAn10Java.l8.part1.figures;
  * Rectangle
  */
 public class Rectangle extends Figure {
-    private static final String NAME = "Rectangle";
     private double length;
     private double width;
 
@@ -15,7 +14,7 @@ public class Rectangle extends Figure {
      * @param width width
      */
     public Rectangle(double length, double width) {
-        super(NAME);
+        super("Rectangle");
         this.length = length;
         this.width = width;
     }

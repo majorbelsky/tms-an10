@@ -4,7 +4,6 @@ package io.devmartynov.tmsAn10Java.l8.part1.figures;
  * Triangle
  */
 public class Triangle extends Figure {
-    private static final String NAME = "Triangle";
     private double sideA;
     private double sideB;
     private double sideC;
@@ -17,7 +16,7 @@ public class Triangle extends Figure {
      * @param sideC sideC
      */
     public Triangle(double sideA, double sideB, double sideC) {
-        super(NAME);
+        super("Triangle");
         this.sideA = sideA;
         this.sideB = sideB;
         this.sideC = sideC;
