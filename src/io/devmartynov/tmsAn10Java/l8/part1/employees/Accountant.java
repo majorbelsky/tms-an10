@@ -4,7 +4,7 @@ package io.devmartynov.tmsAn10Java.l8.part1.employees;
  * Accountant
  */
 public class Accountant implements Employee {
-    private static final String POSITION = "Accountant";
+    private String position = "Accountant";
 
     /**
      * Ctor.
@@ -14,6 +14,11 @@ public class Accountant implements Employee {
 
     @Override
     public void displayPosition() {
-        System.out.println(POSITION);
+        System.out.println(position);
+    }
+
+    @Override
+    public String getPosition() {
+        return position;
     }
 }
