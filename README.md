@@ -133,4 +133,80 @@ DoctorSpecializationEnum
     
 </pre>
         </dd>
+<dt>lesson-8. Interfaces and abstract classes.</dt>
+    <dd>
+        <h6>Part 1-1.</h6>
+<pre>
+abstract Figure
+ - String name
+ + String getName()
+ + abstract double calculatePerimeter()
+ + abstract double calculateArea()
+Circle : Figure
+ + double calculatePerimeter()
+ + double calculateArea()
+Rectangle : Figure
+ + double calculatePerimeter()
+ + double calculateArea()
+Triangle : Figure
+ + double calculatePerimeter()
+ + double calculateArea()
+</pre>
+        </dd>
+<dd>
+        <h6>Part 1-2.</h6>
+<pre>
+interface Employee
+ + void displayPosition()
+Director : Employee
+ + void displayPosition()
+Worker : Employee
+ + void displayPosition()
+Accountant : Employee
+ + void displayPosition()
+</pre>
+        </dd>
+<dd>
+        <h6>Additional.</h6>
+<pre>
+abstract Document
+ - int number
+ - Date date
+ - SimpleDateFormat dateFormatter
+ + int getNumber()
+ + void setNumber(int number)
+ + Date getDate()
+ + void setDate(Date date)
+ + String getInfo()
+ abstract void displayInfo()
+FinancialInvoice : Document
+ - double monthTotalAmount
+ - int departmentCode
+ + double getMonthTotalAmount()
+ + void setMonthTotalAmount(double monthTotalAmount)
+ + int getDepartmentCode()
+ + void setDepartmentCode(int departmentCode)
+ + void displayInfo()
+EmployeeContract : Document
+ - Date contractEndDate
+ - String employeeName
+ + Date getContractEndDate()
+ + void setContractEndDate(Date contractEndDate)
+ + String getEmployeeName()
+ + void setEmployeeName(String employeeName)
+ + void displayInfo()
+ProductContract : Document
+ - String productType
+ - int productsCount
+ + String getProductType()
+ + void setProductType(String productType)
+ + int getProductsCount()
+ + void setProductsCount(int productsCount)
+ + void displayInfo()
+Register
+ - Document[] documents
+ + boolean saveDocument(Document document)
+ + void displayDocumentInfo(Document document)
+</pre>
+        </dd>
 </dl>
